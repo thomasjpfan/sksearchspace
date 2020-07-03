@@ -13,6 +13,11 @@ jobs:
       - name: Install package
         run: pip install -e .
       - name: Install test dependencies
-        run: pip install pytest
+        run: pip install -r requirements-dev.txt
       - name: Run tests
-        run: pytest
+        run: pytest --cov=sksearchspace --cov-report=xml
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage.xml
+          flags: unittests
