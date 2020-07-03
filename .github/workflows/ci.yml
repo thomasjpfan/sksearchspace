@@ -5,10 +5,14 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - name: Setup up Python
+        uses: actions/setup-python@v2
         with:
           python-version: "3.6"
           architecture: "x64"
-      - runs: pip install -e .
-      - runs: pip install pytest
-      - runs: pytest
+      - name: Install package
+        run: pip install -e .
+      - name: Install test dependencies
+        run: pip install pytest
+      - name: Run tests
+        run: pytest
