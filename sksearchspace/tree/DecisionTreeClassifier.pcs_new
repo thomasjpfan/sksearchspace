@@ -1,0 +1,1 @@
+criterion categorical {gini, entropy} [gini]

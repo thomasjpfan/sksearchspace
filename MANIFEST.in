@@ -1,0 +1,3 @@
+recursive-include sksearchspace *.pcs_new
+include README.md
+include pyproject.toml

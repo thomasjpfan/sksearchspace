@@ -1,0 +1,14 @@
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.6"
+          architecture: "x64"
+      - runs: pip install -e .
+      - runs: pip install pytest
+      - runs: pytest
