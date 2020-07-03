@@ -4,7 +4,7 @@
 
 Scikit-learn Search Space Configurations with curated search spaces for [scikit-learn estimators](http://github.com/scikit-learn/scikit-learn).
 
-## How to use
+## Usage
 
 ```py
 from sksearchspace import get_estimator_space
@@ -12,7 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 estimator_space = get_estimator_space(DecisionTreeClassifier, seed=42)
 estimator_space.sample()
-# {'criterion': 'entropy', 'min_samples_leaf': 15, 'min_samples_split': 11}
+# {'criterion': 'entropy','min_samples_leaf': 15, 'min_samples_split': 11}
 ```
 
 # License
