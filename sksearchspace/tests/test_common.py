@@ -10,7 +10,7 @@ from sksearchspace.tests.checking_estimator import CheckingEstimator
 
 from sksearchspace import get_estimator_space
 
-SUPPORTED_ESTIMATORS = [DecisionTreeClassifier, DecisionTreeRegressor]
+SUPPORTED_ESTIMATORS = [DecisionTreeRegressor, DecisionTreeClassifier]
 
 
 @pytest.mark.parametrize("Estimator", SUPPORTED_ESTIMATORS)
