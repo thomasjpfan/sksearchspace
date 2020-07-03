@@ -5,6 +5,8 @@ import pytest
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sksearchspace import EstimatorSpace
+from sksearchspace.tests.checking_estimator import CheckingEstimatorSpace
+from sksearchspace.tests.checking_estimator import CheckingEstimator
 
 from sksearchspace import get_estimator_space
 
@@ -21,7 +23,6 @@ def test_get_estimator_space(Estimator):
     # Estimator
     config_parameters = set(config.get_hyperparameter_names())
     est_parameters = set(inspect.signature(Estimator).parameters)
-
     assert config_parameters <= est_parameters
 
     for _ in range(10):
@@ -29,5 +30,27 @@ def test_get_estimator_space(Estimator):
         # parameters
         sample_parameters = set(estimator_space.sample())
         est_parameters = set(inspect.signature(Estimator).parameters)
-
         assert sample_parameters <= est_parameters
+
+
+def test_checking_estimator_space():
+    estimator_space = CheckingEstimatorSpace()
+    assert isinstance(estimator_space, EstimatorSpace)
+    config = estimator_space.configuration
+
+    # check that configuration parameters are a valid hyperparameter in
+    # Estimator
+    config_parameters = set(config.get_hyperparameter_names())
+    est_parameters = set(inspect.signature(CheckingEstimator).parameters)
+    assert config_parameters <= est_parameters
+
+    for _ in range(10):
+        # make sure the sampled paramters is a subset of the estimator
+        # parameters
+        sample_parameters = estimator_space.sample()
+        est_parameters = set(inspect.signature(CheckingEstimator).parameters)
+        assert set(sample_parameters) <= est_parameters
+
+        est = CheckingEstimator(**sample_parameters)
+        assert est.a == sample_parameters['a']
+        assert est.b == sample_parameters['b']

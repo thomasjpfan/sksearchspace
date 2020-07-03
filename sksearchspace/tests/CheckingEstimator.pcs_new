@@ -1,0 +1,3 @@
+a categorical {None, cat} [None]
+b categorical {True, False} [False]
+c categorical {True, False, None} [True]
