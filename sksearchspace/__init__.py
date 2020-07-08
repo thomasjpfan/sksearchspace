@@ -3,6 +3,5 @@ from ._config import EstimatorSpace
 
 __all__ = [
     'get_estimator_space',
-    'sample_configuration',
     'EstimatorSpace',
 ]

@@ -13,6 +13,20 @@ from sklearn.tree import DecisionTreeClassifier
 estimator_space = get_estimator_space(DecisionTreeClassifier, seed=42)
 estimator_space.sample()
 # {'criterion': 'entropy','min_samples_leaf': 15, 'min_samples_split': 11}
+
+estimator_space.sample()
+# {'criterion': 'entropy', 'min_samples_leaf': 12, 'min_samples_split': 4}
+```
+
+`sksearchspace` is uses [ConfigSpace](https://automl.github.io/ConfigSpace/master/) for sampling. The `ConfigSpace` configuration can be accessed through an attribute:
+
+```py
+estimator_space.configuration
+# Configuration space object:
+# Hyperparameters:
+#   criterion, Type: Categorical, Choices: {gini, entropy}, Default: gini
+#   min_samples_leaf, Type: UniformInteger, Range: [1, 20], Default: 1
+#   min_samples_split, Type: UniformInteger, Range: [2, 20], Default: 2
 ```
 
 # License
