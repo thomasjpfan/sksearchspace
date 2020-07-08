@@ -18,7 +18,7 @@ estimator_space.sample()
 # {'criterion': 'entropy', 'min_samples_leaf': 12, 'min_samples_split': 4}
 ```
 
-`sksearchspace` is uses [ConfigSpace](https://automl.github.io/ConfigSpace/master/) for sampling. The `ConfigSpace` configuration can be accessed through an attribute:
+`sksearchspace` uses [ConfigSpace](https://automl.github.io/ConfigSpace/master/) for sampling. The `ConfigSpace` configuration can be accessed through an attribute:
 
 ```py
 estimator_space.configuration
