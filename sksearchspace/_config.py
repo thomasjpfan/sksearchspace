@@ -1,8 +1,4 @@
-from abc import ABC, abstractmethod
 import inspect
-from pathlib import Path
-import pkgutil
-from importlib import import_module
 from enum import IntFlag
 from io import StringIO
 import warnings
@@ -34,7 +30,7 @@ def check_none(value):
     return value
 
 
-class EstimatorSpace(ABC):
+class SearchSpace:
     def __init__(self, file_str, seed=None):
         with StringIO(file_str) as f:
             self.configuration = pcs_new.read(f)

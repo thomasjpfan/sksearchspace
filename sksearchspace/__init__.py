@@ -1,5 +1,5 @@
-from ._config import EstimatorSpace
+from ._config import SearchSpace
 
 __all__ = [
-    'EstimatorSpace',
+    'SearchSpace',
 ]
