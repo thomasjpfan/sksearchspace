@@ -1,26 +1,26 @@
 import pytest
 
-from sksearchspace import get_estimator_space
+from sksearchspace import EstimatorSpace
 from sksearchspace._config import check_bool
 from sksearchspace._config import check_none
 
 
-def test_get_estimator_space_raises_unrecognized():
+def test_EstimatorSpace_raises_unrecognized():
     class BadEstimator:
         pass
 
     msg = "BadEstimator is not recognized"
     with pytest.raises(ValueError, match=msg):
-        get_estimator_space(BadEstimator)
+        EstimatorSpace.for_sklearn_estimator(BadEstimator)
 
 
-def test_get_estimator_space_raises_instances():
+def test_EstimatorSpace_raises_instances():
     class BadEstimator:
         pass
 
     msg = "estimator must be a class and not an instance"
     with pytest.raises(ValueError, match=msg):
-        get_estimator_space(BadEstimator())
+        EstimatorSpace.for_sklearn_estimator(BadEstimator())
 
 
 def test_check_bool():

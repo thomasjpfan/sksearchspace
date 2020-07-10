@@ -1,21 +1,18 @@
 """Test supported for supported models"""
+from pathlib import Path
 import inspect
 
 import pytest
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sksearchspace import EstimatorSpace
-from sksearchspace.tests.checking_estimator import CheckingEstimatorSpace
-from sksearchspace.tests.checking_estimator import CheckingEstimator
-
-from sksearchspace import get_estimator_space
 
 SUPPORTED_ESTIMATORS = [DecisionTreeRegressor, DecisionTreeClassifier]
 
 
 @pytest.mark.parametrize("Estimator", SUPPORTED_ESTIMATORS)
-def test_get_estimator_space(Estimator):
-    estimator_space = get_estimator_space(Estimator, seed=10)
+def test_for_sklearn_estimator(Estimator):
+    estimator_space = EstimatorSpace.for_sklearn_estimator(Estimator, seed=10)
     assert isinstance(estimator_space, EstimatorSpace)
     config = estimator_space.configuration
 
@@ -33,8 +30,17 @@ def test_get_estimator_space(Estimator):
         assert sample_parameters <= est_parameters
 
 
+class CheckingEstimator:
+    def __init__(self, a=None, b=True, c=False):
+        self.a = a
+        self.b = b
+        self.c = c
+
+
 def test_checking_estimator_space():
-    estimator_space = CheckingEstimatorSpace(seed=42)
+    pcs_path = Path(__file__).parent / "CheckingEstimator.pcs_new"
+    with pcs_path.open('r') as f:
+        estimator_space = EstimatorSpace(f.read(), seed=42)
     assert isinstance(estimator_space, EstimatorSpace)
     config = estimator_space.configuration
 
@@ -50,9 +56,6 @@ def test_checking_estimator_space():
         sample_parameters = estimator_space.sample()
         est_parameters = set(inspect.signature(CheckingEstimator).parameters)
         assert set(sample_parameters) <= est_parameters
-
-        est = CheckingEstimator(**sample_parameters)
-        assert est.a == sample_parameters['a']
 
         assert sample_parameters['a'] in (None, 'cat')
         assert sample_parameters['b'] in (True, False)

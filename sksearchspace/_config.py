@@ -7,6 +7,8 @@ from enum import IntFlag
 from io import StringIO
 import warnings
 
+from ._paths import ESTIMATOR_TO_PCS_PATH
+
 with warnings.catch_warnings():
     # ignore warning from pyparsing
     warnings.filterwarnings("ignore", category=FutureWarning)
@@ -33,9 +35,7 @@ def check_none(value):
 
 
 class EstimatorSpace(ABC):
-    def __init__(self, seed=None):
-        with self.pcs_path.open('r') as f:
-            file_str = f.read()
+    def __init__(self, file_str, seed=None):
         with StringIO(file_str) as f:
             self.configuration = pcs_new.read(f)
 
@@ -95,38 +95,14 @@ class EstimatorSpace(ABC):
 
         return sample
 
-    @property
-    @abstractmethod
-    def estimator_cls(self):
-        """Class of estimator"""
+    @classmethod
+    def for_sklearn_estimator(cls, Estimator, seed=None):
+        if not inspect.isclass(Estimator):
+            raise ValueError("estimator must be a class and not an instance")
+        try:
+            pcs_path = ESTIMATOR_TO_PCS_PATH[Estimator]
+        except KeyError:
+            raise ValueError(f"{Estimator.__name__} is not recognized")
 
-    @property
-    def pcs_path(self):
-        """Path to pcs file"""
-        submodule = self.__module__.split('.')[-1]
-        estimator_name = self.estimator_cls.__name__ + ".pcs_new"
-        return Path(__file__).parent / submodule / estimator_name
-
-
-# Go through packages to find estimator spaces
-_estimator_spaces = {}
-
-root = str(Path(__file__).parent)
-for importer, modname, ispkg in pkgutil.walk_packages(path=[root],
-                                                      prefix='sksearchspace.'):
-    module = import_module(modname)
-    classes = inspect.getmembers(module, inspect.isclass)
-
-    for name, cur_class in classes:
-        if name != 'EstimatorSpace' and issubclass(cur_class, EstimatorSpace):
-            _estimator_spaces[cur_class.estimator_cls] = cur_class
-
-
-def get_estimator_space(Estimator, seed=None):
-    """Get configspace representation of configuration."""
-    if not inspect.isclass(Estimator):
-        raise ValueError("estimator must be a class and not an instance")
-    try:
-        return _estimator_spaces[Estimator](seed=seed)
-    except KeyError:
-        raise ValueError(f"{Estimator.__name__} is not recognized")
+        with pcs_path.open('r') as f:
+            return cls(f.read(), seed=seed)
