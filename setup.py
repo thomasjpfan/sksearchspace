@@ -4,7 +4,7 @@ with open('README.md') as f:
     LONG_DESCRIPTION = f.read()
 
 setup(name="sksearchspace",
-      version="0.0.1.0.23.1.dev1",
+      version="0.0.1.0.23.1.dev2",
       description="Defines search spaces for scikit-lean estimators",
       author="Thomas J. Fan",
       author_email="thomasjpfan@gmail.com",
