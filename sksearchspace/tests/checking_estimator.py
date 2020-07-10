@@ -1,6 +1,5 @@
 from pathlib import Path
 from .._config import EstimatorSpace
-from .._config import Conversion
 
 
 class CheckingEstimator:
@@ -16,11 +15,3 @@ class CheckingEstimatorSpace(EstimatorSpace):
     @property
     def pcs_path(self):
         return Path(__file__).parent / "CheckingEstimator.pcs_new"
-
-    @property
-    def parameter_conversion(self):
-        return {
-            'a': Conversion.NONE,
-            'b': Conversion.BOOL,
-            'c': Conversion.BOOL | Conversion.NONE,
-        }

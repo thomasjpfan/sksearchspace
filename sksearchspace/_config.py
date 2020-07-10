@@ -4,6 +4,7 @@ from pathlib import Path
 import pkgutil
 from importlib import import_module
 from enum import IntFlag
+from io import StringIO
 import warnings
 
 with warnings.catch_warnings():
@@ -34,8 +35,47 @@ def check_none(value):
 class EstimatorSpace(ABC):
     def __init__(self, seed=None):
         with self.pcs_path.open('r') as f:
+            file_str = f.read()
+        with StringIO(file_str) as f:
             self.configuration = pcs_new.read(f)
+
         self.configuration.seed(seed=seed)
+        # get comments to check for parameter conversions
+        paramters = set(self.configuration.get_hyperparameter_names())
+        self.parameter_conversion = {}
+        for line in file_str.split("\n"):
+            if '|' in line:
+                # conditional
+                continue
+            if line.startswith("{") and line.endswith("}"):
+                # forbidden
+                continue
+            if "}" not in line and "]" not in line:
+                continue
+            if len(line.strip()) == 0:
+                continue
+
+            parameter_name = line.split(maxsplit=1)[0]
+            if parameter_name not in paramters:
+                continue
+
+            # find comment
+            pos = line.find("#")
+            if pos == -1:
+                # no comment
+                continue
+
+            comment = line[pos:].lower()
+            none_in_comment = 'none' in comment
+            bool_in_comment = 'bool' in comment
+
+            if none_in_comment and bool_in_comment:
+                self.parameter_conversion[parameter_name] = (Conversion.BOOL
+                                                             | Conversion.NONE)
+            elif none_in_comment:
+                self.parameter_conversion[parameter_name] = Conversion.NONE
+            elif bool_in_comment:
+                self.parameter_conversion[parameter_name] = Conversion.BOOL
 
     def sample(self):
         """Sample configuration."""
@@ -51,20 +91,9 @@ class EstimatorSpace(ABC):
                 value = check_bool(value)
             if Conversion.NONE in conversion:
                 value = check_none(value)
-            value = sample[param]
+            sample[param] = value
 
         return sample
-
-    @property
-    def parameter_conversion(self):
-        """Dictionary mapping for parametres that need to be converted to a
-        python builtin type such as a bool or None.
-
-        For example: {'max_depth': Conversion.NONE,
-                      'copy': Conversion.BOOL,
-                      'both': Conversion.BOOL | Converstion.NONE}
-        """
-        return {}
 
     @property
     @abstractmethod

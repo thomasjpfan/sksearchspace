@@ -34,7 +34,7 @@ def test_get_estimator_space(Estimator):
 
 
 def test_checking_estimator_space():
-    estimator_space = CheckingEstimatorSpace()
+    estimator_space = CheckingEstimatorSpace(seed=42)
     assert isinstance(estimator_space, EstimatorSpace)
     config = estimator_space.configuration
 
@@ -44,7 +44,7 @@ def test_checking_estimator_space():
     est_parameters = set(inspect.signature(CheckingEstimator).parameters)
     assert config_parameters <= est_parameters
 
-    for _ in range(10):
+    for _ in range(20):
         # make sure the sampled paramters is a subset of the estimator
         # parameters
         sample_parameters = estimator_space.sample()
@@ -53,4 +53,7 @@ def test_checking_estimator_space():
 
         est = CheckingEstimator(**sample_parameters)
         assert est.a == sample_parameters['a']
-        assert est.b == sample_parameters['b']
+
+        assert sample_parameters['a'] in (None, 'cat')
+        assert sample_parameters['b'] in (True, False)
+        assert sample_parameters['c'] in (True, False, None)

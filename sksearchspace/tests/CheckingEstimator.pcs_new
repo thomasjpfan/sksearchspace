@@ -1,3 +1,3 @@
-a categorical {None, cat} [None]
-b categorical {True, False} [False]
-c categorical {True, False, None} [True]
+a categorical {None, cat} [None]  # None
+b categorical {True, False} [False]  # bool
+c categorical {True, False, None} [True]  # bool,None
