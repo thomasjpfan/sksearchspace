@@ -4,8 +4,6 @@ import inspect
 import numpy as np
 
 import pytest
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn.metrics import pairwise_distances
 from sklearn.base import RegressorMixin
@@ -13,8 +11,7 @@ from sklearn.linear_model import Ridge
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 from sksearchspace import SearchSpace
-
-SUPPORTED_ESTIMATORS = [DecisionTreeRegressor, DecisionTreeClassifier]
+from sksearchspace._paths import ESTIMATOR_TO_PCS_PATH
 
 
 def _construct_instance(Estimator):
@@ -61,7 +58,7 @@ def _enforce_estimator_tags_y(estimator, y):
     return y
 
 
-@pytest.mark.parametrize("Estimator", SUPPORTED_ESTIMATORS)
+@pytest.mark.parametrize("Estimator", ESTIMATOR_TO_PCS_PATH)
 def test_for_sklearn_estimator(Estimator):
     estimator_space = SearchSpace.for_sklearn_estimator(Estimator, seed=10)
     assert isinstance(estimator_space, SearchSpace)
