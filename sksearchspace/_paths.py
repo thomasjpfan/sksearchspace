@@ -5,6 +5,12 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import Birch
 from sklearn.cluster import DBSCAN
 from sklearn.cluster import FeatureAgglomeration
+from sklearn.cluster import KMeans
+from sklearn.cluster import MiniBatchKMeans
+from sklearn.cluster import MeanShift
+from sklearn.cluster import SpectralClustering
+from sklearn.cluster import SpectralBiclustering
+from sklearn.cluster import SpectralCoclustering
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
@@ -22,6 +28,12 @@ ESTIMATOR_TO_PCS_PATH = {
     Birch: HERE / "cluster" / "Birch.pcs_new",
     DBSCAN: HERE / "cluster" / "DBSCAN.pcs_new",
     FeatureAgglomeration: HERE / "cluster" / "FeatureAgglomeration.pcs_new",
+    KMeans: HERE / "cluster" / "KMeans.pcs_new",
+    MiniBatchKMeans: HERE / "cluster" / "MiniBatchKMeans.pcs_new",
+    MeanShift: HERE / "cluster" / "MeanShift.pcs_new",
+    SpectralClustering: HERE / "cluster" / "SpectralClustering.pcs_new",
+    SpectralBiclustering: HERE / "cluster" / "SpectralBiclustering.pcs_new",
+    SpectralCoclustering: HERE / "cluster" / "SpectralCoclustering.pcs_new",
 
     # tree
     DecisionTreeClassifier: HERE / "tree" / "DecisionTreeClassifier.pcs_new",
