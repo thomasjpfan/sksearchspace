@@ -17,6 +17,15 @@ from sklearn.cross_decomposition import PLSCanonical
 from sklearn.cross_decomposition import PLSRegression
 from sklearn.cross_decomposition import PLSSVD
 
+from sklearn.covariance import EmpiricalCovariance
+from sklearn.covariance import EllipticEnvelope
+from sklearn.covariance import GraphicalLasso
+from sklearn.covariance import GraphicalLassoCV
+from sklearn.covariance import LedoitWolf
+from sklearn.covariance import MinCovDet
+from sklearn.covariance import OAS
+from sklearn.covariance import ShrunkCovariance
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeClassifier
@@ -45,6 +54,16 @@ ESTIMATOR_TO_PCS_PATH = {
     PLSCanonical: HERE / "cross_decomposition" / "PLSCanonical.pcs_new",
     PLSRegression: HERE / "cross_decomposition" / "PLSRegression.pcs_new",
     PLSSVD: HERE / "cross_decomposition" / "PLSSVD.pcs_new",
+
+    # covariance
+    EmpiricalCovariance: HERE / "covariance" / "EmpiricalCovariance.pcs_new",
+    EllipticEnvelope: HERE / "covariance" / "EllipticEnvelope.pcs_new",
+    GraphicalLasso: HERE / "covariance" / "GraphicalLasso.pcs_new",
+    GraphicalLassoCV: HERE / "covariance" / "GraphicalLassoCV.pcs_new",
+    LedoitWolf: HERE / "covariance" / "LedoitWolf.pcs_new",
+    MinCovDet: HERE / "covariance" / "MinCovDet.pcs_new",
+    OAS: HERE / "covariance" / "OAS.pcs_new",
+    ShrunkCovariance: HERE / "covariance" / "ShrunkCovariance.pcs_new",
 
     # tree
     DecisionTreeClassifier: HERE / "tree" / "DecisionTreeClassifier.pcs_new",

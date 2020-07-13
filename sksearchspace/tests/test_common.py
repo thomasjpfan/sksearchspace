@@ -77,12 +77,24 @@ def test_for_sklearn_estimator(Estimator):
     y = X[:, 0].astype(int)
 
     est_parameters = set(inspect.signature(Estimator).parameters)
-    for _ in range(10):
+    iterations = 10
+    sample_parameters = estimator_space.sample()
+
+    # empty dictionary just iterate once
+    if not sample_parameters:
+        iterations = 1
+
+    for _ in range(iterations):
         # make sure the sampled paramters is a subset of the estimator
         # parameters
         sample_parameters = estimator_space.sample()
+        print(sample_parameters)
         assert set(sample_parameters) <= est_parameters
 
         estimator.set_params(**sample_parameters)
         # Does not fail
-        estimator.fit(X, y)
+        try:
+            estimator.fit(X, y)
+        except Exception as e:
+            raise AssertionError(
+                f"failed with parameters {sample_parameters}") from e
