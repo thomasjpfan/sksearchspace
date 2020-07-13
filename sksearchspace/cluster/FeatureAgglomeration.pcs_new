@@ -1,0 +1,7 @@
+affinity categorical {l1, l2, manhattan, cosine, euclidean} [euclidean]
+linkage categorical {ward, average} [ward]
+
+{affinity=cosine, linkage=ward}
+{affinity=l1, linkage=ward}
+{affinity=l2, linkage=ward}
+{affinity=manhattan, linkage=ward}
