@@ -3,6 +3,7 @@ from pathlib import Path
 from sklearn.cluster import AffinityPropagation
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import Birch
+from sklearn.cluster import DBSCAN
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
@@ -18,6 +19,7 @@ ESTIMATOR_TO_PCS_PATH = {
     AgglomerativeClustering:
     HERE / "cluster" / "AgglomerativeClustering.pcs_new",
     Birch: HERE / "cluster" / "Birch.pcs_new",
+    DBSCAN: HERE / "cluster" / "DBSCAN.pcs_new",
 
     # tree
     DecisionTreeClassifier: HERE / "tree" / "DecisionTreeClassifier.pcs_new",
