@@ -12,6 +12,11 @@ from sklearn.cluster import SpectralClustering
 from sklearn.cluster import SpectralBiclustering
 from sklearn.cluster import SpectralCoclustering
 
+from sklearn.cross_decomposition import CCA
+from sklearn.cross_decomposition import PLSCanonical
+from sklearn.cross_decomposition import PLSRegression
+from sklearn.cross_decomposition import PLSSVD
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeClassifier
@@ -34,6 +39,12 @@ ESTIMATOR_TO_PCS_PATH = {
     SpectralClustering: HERE / "cluster" / "SpectralClustering.pcs_new",
     SpectralBiclustering: HERE / "cluster" / "SpectralBiclustering.pcs_new",
     SpectralCoclustering: HERE / "cluster" / "SpectralCoclustering.pcs_new",
+
+    # cross_decomposition
+    CCA: HERE / "cross_decomposition" / "CCA.pcs_new",
+    PLSCanonical: HERE / "cross_decomposition" / "PLSCanonical.pcs_new",
+    PLSRegression: HERE / "cross_decomposition" / "PLSRegression.pcs_new",
+    PLSSVD: HERE / "cross_decomposition" / "PLSSVD.pcs_new",
 
     # tree
     DecisionTreeClassifier: HERE / "tree" / "DecisionTreeClassifier.pcs_new",

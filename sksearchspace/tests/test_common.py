@@ -31,7 +31,7 @@ def _construct_instance(Estimator):
     return estimator
 
 
-def _pairwise_estimator_convert_X(X, estimator, kernel=linear_kernel):
+def _enforce_estimator_tags_x(X, estimator, kernel=linear_kernel):
     if bool(getattr(estimator, "metric", None) == 'precomputed'):
         return pairwise_distances(X, metric='euclidean')
     if bool(getattr(estimator, "_pairwise", False)):
@@ -57,6 +57,7 @@ def _enforce_estimator_tags_y(estimator, y):
     return y
 
 
+@pytest.mark.filterwarnings("ignore::UserWarning")
 @pytest.mark.parametrize("Estimator", ESTIMATOR_TO_PCS_PATH)
 def test_for_sklearn_estimator(Estimator):
     estimator_space = SearchSpace.for_sklearn_estimator(Estimator, seed=10)
@@ -72,7 +73,7 @@ def test_for_sklearn_estimator(Estimator):
     estimator = _construct_instance(Estimator)
     rng = np.random.RandomState(0)
     X = 3 * rng.uniform(size=(20, 5))
-    X = _pairwise_estimator_convert_X(X, estimator)
+    X = _enforce_estimator_tags_x(X, estimator)
     y = X[:, 0].astype(int)
 
     est_parameters = set(inspect.signature(Estimator).parameters)
