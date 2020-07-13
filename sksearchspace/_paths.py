@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from sklearn.cluster import AffinityPropagation
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeClassifier
@@ -8,6 +10,9 @@ from sklearn.tree import ExtraTreeRegressor
 HERE = Path(__file__).parent
 
 ESTIMATOR_TO_PCS_PATH = {
+
+    # cluster
+    AffinityPropagation: HERE / "cluster" / "AffinityPropagation.pcs_new",
 
     # tree
     DecisionTreeClassifier: HERE / "tree" / "DecisionTreeClassifier.pcs_new",

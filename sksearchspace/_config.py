@@ -12,8 +12,10 @@ with warnings.catch_warnings():
 
 
 class Conversion(IntFlag):
+    NULL = 0
     NONE = 1
     BOOL = 2
+    INT = 3
 
 
 def check_bool(value):
@@ -28,6 +30,13 @@ def check_none(value):
     if value == 'None':
         return None
     return value
+
+
+def check_int(value):
+    try:
+        return int(value)
+    except ValueError:
+        return value
 
 
 class SearchSpace:
@@ -64,14 +73,17 @@ class SearchSpace:
             comment = line[pos:].lower()
             none_in_comment = 'none' in comment
             bool_in_comment = 'bool' in comment
+            int_in_comment = 'int' in comment
 
-            if none_in_comment and bool_in_comment:
-                self.parameter_conversion[parameter_name] = (Conversion.BOOL
-                                                             | Conversion.NONE)
-            elif none_in_comment:
-                self.parameter_conversion[parameter_name] = Conversion.NONE
-            elif bool_in_comment:
-                self.parameter_conversion[parameter_name] = Conversion.BOOL
+            if none_in_comment or bool_in_comment or int_in_comment:
+                self.parameter_conversion[parameter_name] = Conversion.NULL
+
+            if none_in_comment:
+                self.parameter_conversion[parameter_name] |= Conversion.NONE
+            if bool_in_comment:
+                self.parameter_conversion[parameter_name] |= Conversion.BOOL
+            if int_in_comment:
+                self.parameter_conversion[parameter_name] |= Conversion.INT
 
     def sample(self):
         """Sample configuration."""
@@ -83,10 +95,12 @@ class SearchSpace:
         # there are parameters to convert
         for param, conversion in self.parameter_conversion.items():
             value = sample[param]
-            if Conversion.BOOL in conversion:
-                value = check_bool(value)
             if Conversion.NONE in conversion:
                 value = check_none(value)
+            if Conversion.BOOL in conversion:
+                value = check_bool(value)
+            if Conversion.INT in conversion:
+                value = check_int(value)
             sample[param] = value
 
         return sample
