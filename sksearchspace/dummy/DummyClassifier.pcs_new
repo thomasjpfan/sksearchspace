@@ -1,0 +1,1 @@
+strategy categorical {stratified, prior, uniform} [prior]

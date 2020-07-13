@@ -88,7 +88,6 @@ def test_for_sklearn_estimator(Estimator):
         # make sure the sampled paramters is a subset of the estimator
         # parameters
         sample_parameters = estimator_space.sample()
-        print(sample_parameters)
         assert set(sample_parameters) <= est_parameters
 
         estimator.set_params(**sample_parameters)

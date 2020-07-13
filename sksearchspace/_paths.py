@@ -26,6 +26,25 @@ from sklearn.covariance import MinCovDet
 from sklearn.covariance import OAS
 from sklearn.covariance import ShrunkCovariance
 
+from sklearn.decomposition import DictionaryLearning
+from sklearn.decomposition import FactorAnalysis
+from sklearn.decomposition import FastICA
+from sklearn.decomposition import IncrementalPCA
+from sklearn.decomposition import KernelPCA
+from sklearn.decomposition import LatentDirichletAllocation
+from sklearn.decomposition import MiniBatchDictionaryLearning
+from sklearn.decomposition import MiniBatchSparsePCA
+from sklearn.decomposition import NMF
+from sklearn.decomposition import PCA
+from sklearn.decomposition import SparsePCA
+from sklearn.decomposition import TruncatedSVD
+
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+
+from sklearn.dummy import DummyClassifier
+from sklearn.dummy import DummyRegressor
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeClassifier
@@ -33,41 +52,34 @@ from sklearn.tree import ExtraTreeRegressor
 
 HERE = Path(__file__).parent
 
-ESTIMATOR_TO_PCS_PATH = {
-
-    # cluster
-    AffinityPropagation: HERE / "cluster" / "AffinityPropagation.pcs_new",
-    AgglomerativeClustering:
-    HERE / "cluster" / "AgglomerativeClustering.pcs_new",
-    Birch: HERE / "cluster" / "Birch.pcs_new",
-    DBSCAN: HERE / "cluster" / "DBSCAN.pcs_new",
-    FeatureAgglomeration: HERE / "cluster" / "FeatureAgglomeration.pcs_new",
-    KMeans: HERE / "cluster" / "KMeans.pcs_new",
-    MiniBatchKMeans: HERE / "cluster" / "MiniBatchKMeans.pcs_new",
-    MeanShift: HERE / "cluster" / "MeanShift.pcs_new",
-    SpectralClustering: HERE / "cluster" / "SpectralClustering.pcs_new",
-    SpectralBiclustering: HERE / "cluster" / "SpectralBiclustering.pcs_new",
-    SpectralCoclustering: HERE / "cluster" / "SpectralCoclustering.pcs_new",
-
-    # cross_decomposition
-    CCA: HERE / "cross_decomposition" / "CCA.pcs_new",
-    PLSCanonical: HERE / "cross_decomposition" / "PLSCanonical.pcs_new",
-    PLSRegression: HERE / "cross_decomposition" / "PLSRegression.pcs_new",
-    PLSSVD: HERE / "cross_decomposition" / "PLSSVD.pcs_new",
-
-    # covariance
-    EmpiricalCovariance: HERE / "covariance" / "EmpiricalCovariance.pcs_new",
-    EllipticEnvelope: HERE / "covariance" / "EllipticEnvelope.pcs_new",
-    GraphicalLasso: HERE / "covariance" / "GraphicalLasso.pcs_new",
-    GraphicalLassoCV: HERE / "covariance" / "GraphicalLassoCV.pcs_new",
-    LedoitWolf: HERE / "covariance" / "LedoitWolf.pcs_new",
-    MinCovDet: HERE / "covariance" / "MinCovDet.pcs_new",
-    OAS: HERE / "covariance" / "OAS.pcs_new",
-    ShrunkCovariance: HERE / "covariance" / "ShrunkCovariance.pcs_new",
-
-    # tree
-    DecisionTreeClassifier: HERE / "tree" / "DecisionTreeClassifier.pcs_new",
-    DecisionTreeRegressor: HERE / "tree" / "DecisionTreeRegressor.pcs_new",
-    ExtraTreeClassifier: HERE / "tree" / "ExtraTreeClassifier.pcs_new",
-    ExtraTreeRegressor: HERE / "tree" / "ExtraTreeRegressor.pcs_new"
+MODULE_TO_ESTIMATORS = {
+    "cluster": [
+        AffinityPropagation, AgglomerativeClustering, Birch, DBSCAN,
+        FeatureAgglomeration, KMeans, MiniBatchKMeans, MeanShift,
+        SpectralClustering, SpectralBiclustering, SpectralCoclustering
+    ],
+    "cross_decomposition": [CCA, PLSCanonical, PLSRegression, PLSSVD],
+    "covariance": [
+        EmpiricalCovariance, EllipticEnvelope, GraphicalLasso,
+        GraphicalLassoCV, LedoitWolf, MinCovDet, OAS, ShrunkCovariance
+    ],
+    "decomposition": [
+        DictionaryLearning, FactorAnalysis, FastICA, IncrementalPCA, KernelPCA,
+        LatentDirichletAllocation, MiniBatchDictionaryLearning,
+        MiniBatchDictionaryLearning, MiniBatchSparsePCA, NMF, PCA, SparsePCA,
+        TruncatedSVD
+    ],
+    "discriminant_analysis":
+    [LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis],
+    "dummy": [DummyClassifier, DummyRegressor],
+    "tree": [
+        DecisionTreeClassifier, DecisionTreeRegressor, ExtraTreeClassifier,
+        ExtraTreeRegressor
+    ],
 }
+
+ESTIMATOR_TO_PCS_PATH = {}
+for module, estimators in MODULE_TO_ESTIMATORS.items():
+    for estimator in estimators:
+        name = estimator.__name__
+        ESTIMATOR_TO_PCS_PATH[estimator] = HERE / module / f"{name}.pcs_new"
