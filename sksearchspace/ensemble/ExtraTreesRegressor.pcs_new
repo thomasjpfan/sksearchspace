@@ -1,0 +1,1 @@
+criterion categorical {mse, friedman_mse, mae} [mae]

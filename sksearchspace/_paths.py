@@ -45,6 +45,21 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.dummy import DummyClassifier
 from sklearn.dummy import DummyRegressor
 
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import BaggingRegressor
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
+
+from sklearn.experimental import enable_hist_gradient_boosting
+from sklearn.ensemble import HistGradientBoostingClassifier
+from sklearn.ensemble import HistGradientBoostingRegressor
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import ExtraTreeClassifier
@@ -72,6 +87,20 @@ MODULE_TO_ESTIMATORS = {
     "discriminant_analysis":
     [LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis],
     "dummy": [DummyClassifier, DummyRegressor],
+    "ensemble": [
+        AdaBoostClassifier,
+        AdaBoostRegressor,
+        BaggingClassifier,
+        BaggingRegressor,
+        ExtraTreesClassifier,
+        ExtraTreesRegressor,
+        GradientBoostingClassifier,
+        GradientBoostingRegressor,
+        RandomForestClassifier,
+        RandomForestRegressor,
+        HistGradientBoostingClassifier,
+        HistGradientBoostingRegressor,
+    ],
     "tree": [
         DecisionTreeClassifier, DecisionTreeRegressor, ExtraTreeClassifier,
         ExtraTreeRegressor
