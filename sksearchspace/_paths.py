@@ -53,12 +53,18 @@ from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import IsolationForest
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomTreesEmbedding
 
-from sklearn.experimental import enable_hist_gradient_boosting
+from sklearn.experimental import enable_hist_gradient_boosting  # noqa
 from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.ensemble import HistGradientBoostingRegressor
+
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.feature_extraction import FeatureHasher
+from sklearn.feature_extraction.text import CountVectorizer
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
@@ -96,11 +102,15 @@ MODULE_TO_ESTIMATORS = {
         ExtraTreesRegressor,
         GradientBoostingClassifier,
         GradientBoostingRegressor,
+        IsolationForest,
         RandomForestClassifier,
         RandomForestRegressor,
+        RandomTreesEmbedding,
         HistGradientBoostingClassifier,
         HistGradientBoostingRegressor,
     ],
+    "feature_extraction": [DictVectorizer, FeatureHasher],
+    "feature_extraction.text": [CountVectorizer],
     "tree": [
         DecisionTreeClassifier, DecisionTreeRegressor, ExtraTreeClassifier,
         ExtraTreeRegressor
@@ -109,6 +119,7 @@ MODULE_TO_ESTIMATORS = {
 
 ESTIMATOR_TO_PCS_PATH = {}
 for module, estimators in MODULE_TO_ESTIMATORS.items():
+    module_folder = HERE.joinpath(*module.split('.'))
     for estimator in estimators:
         name = estimator.__name__
-        ESTIMATOR_TO_PCS_PATH[estimator] = HERE / module / f"{name}.pcs_new"
+        ESTIMATOR_TO_PCS_PATH[estimator] = module_folder / f"{name}.pcs_new"

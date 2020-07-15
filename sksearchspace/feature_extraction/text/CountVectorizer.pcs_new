@@ -1,0 +1,1 @@
+analyzer categorical {word, char, char_wb} [word]
