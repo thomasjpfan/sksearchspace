@@ -19,15 +19,15 @@ class Conversion(IntFlag):
 
 
 def check_bool(value):
-    if value == 'True':
+    if value == "True":
         return True
-    elif value == 'False':
+    elif value == "False":
         return False
     return value
 
 
 def check_none(value):
-    if value == 'None':
+    if value == "None":
         return None
     return value
 
@@ -35,7 +35,7 @@ def check_none(value):
 def check_int(value):
     try:
         return int(value)
-    except ValueError:
+    except (ValueError, TypeError):
         return value
 
 
@@ -49,7 +49,7 @@ class SearchSpace:
         paramters = set(self.configuration.get_hyperparameter_names())
         self.parameter_conversion = {}
         for line in file_str.split("\n"):
-            if '|' in line:
+            if "|" in line:
                 # conditional
                 continue
             if line.startswith("{") and line.endswith("}"):
@@ -71,9 +71,9 @@ class SearchSpace:
                 continue
 
             comment = line[pos:].lower()
-            none_in_comment = 'none' in comment
-            bool_in_comment = 'bool' in comment
-            int_in_comment = 'int' in comment
+            none_in_comment = "none" in comment
+            bool_in_comment = "bool" in comment
+            int_in_comment = "int" in comment
 
             if none_in_comment or bool_in_comment or int_in_comment:
                 self.parameter_conversion[parameter_name] = Conversion.NULL
@@ -114,5 +114,5 @@ class SearchSpace:
         except KeyError:
             raise ValueError(f"{Estimator.__name__} is not recognized")
 
-        with pcs_path.open('r') as f:
+        with pcs_path.open("r") as f:
             return cls(f.read(), seed=seed)

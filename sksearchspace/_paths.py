@@ -65,6 +65,9 @@ from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.feature_extraction import FeatureHasher
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import HashingVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
@@ -110,7 +113,8 @@ MODULE_TO_ESTIMATORS = {
         HistGradientBoostingRegressor,
     ],
     "feature_extraction": [DictVectorizer, FeatureHasher],
-    "feature_extraction.text": [CountVectorizer],
+    "feature_extraction.text":
+    [CountVectorizer, HashingVectorizer, TfidfTransformer, TfidfVectorizer],
     "tree": [
         DecisionTreeClassifier, DecisionTreeRegressor, ExtraTreeClassifier,
         ExtraTreeRegressor

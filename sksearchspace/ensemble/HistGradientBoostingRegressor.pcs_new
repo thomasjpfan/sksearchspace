@@ -1,2 +1,2 @@
-loss categorical {least_squares, least_absolute_deivation, poisson} [least_squares]
+loss categorical {least_squares, least_absolute_deviation, poisson} [least_squares]
 learning_rate real [0.01, 1] [0.1]log

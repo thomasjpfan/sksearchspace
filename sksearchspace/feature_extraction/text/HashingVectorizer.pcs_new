@@ -1,0 +1,2 @@
+analyzer categorical {word, char, char_wb} [word]
+norm categorical {l1, l2} [l2]

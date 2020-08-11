@@ -1,1 +1,1 @@
-alternate_sign categorical {True, False}  # bool
+alternate_sign categorical {True, False} [True] # bool
