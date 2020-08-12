@@ -1,3 +1,4 @@
+from importlib import import_module
 import inspect
 from enum import IntFlag
 from io import StringIO
@@ -16,6 +17,7 @@ class Conversion(IntFlag):
     NONE = 1
     BOOL = 2
     INT = 3
+    IMPORT = 4
 
 
 def check_bool(value):
@@ -35,7 +37,16 @@ def check_none(value):
 def check_int(value):
     try:
         return int(value)
-    except (ValueError, TypeError):
+    except Exception:
+        return value
+
+
+def check_import(value):
+    try:
+        *module_str, name = value.split(".")
+        module = import_module(".".join(module_str))
+        return getattr(module, name)
+    except Exception:
         return value
 
 
@@ -74,8 +85,14 @@ class SearchSpace:
             none_in_comment = "none" in comment
             bool_in_comment = "bool" in comment
             int_in_comment = "int" in comment
+            import_in_comment = "import" in comment
 
-            if none_in_comment or bool_in_comment or int_in_comment:
+            if (
+                none_in_comment
+                or bool_in_comment
+                or int_in_comment
+                or import_in_comment
+            ):
                 self.parameter_conversion[parameter_name] = Conversion.NULL
 
             if none_in_comment:
@@ -84,6 +101,8 @@ class SearchSpace:
                 self.parameter_conversion[parameter_name] |= Conversion.BOOL
             if int_in_comment:
                 self.parameter_conversion[parameter_name] |= Conversion.INT
+            if import_in_comment:
+                self.parameter_conversion[parameter_name] |= Conversion.IMPORT
 
     def sample(self):
         """Sample configuration."""
@@ -101,6 +120,8 @@ class SearchSpace:
                 value = check_bool(value)
             if Conversion.INT in conversion:
                 value = check_int(value)
+            if Conversion.IMPORT in conversion:
+                value = check_import(value)
             sample[param] = value
 
         return sample

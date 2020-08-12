@@ -1,0 +1,1 @@
+norm categorical {l1, l2, max} [l2]

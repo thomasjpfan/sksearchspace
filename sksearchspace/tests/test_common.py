@@ -25,9 +25,11 @@ def _construct_instance(Estimator):
             else:
                 estimator = Estimator(LinearDiscriminantAnalysis())
         else:
-            pytest.skip("Can't instantiate estimator "
-                        f"{Estimator.__name__} which requires "
-                        f"parameters {required_parameters}")
+            pytest.skip(
+                "Can't instantiate estimator "
+                f"{Estimator.__name__} which requires "
+                f"parameters {required_parameters}"
+            )
     else:
         estimator = Estimator()
     return estimator
@@ -35,16 +37,16 @@ def _construct_instance(Estimator):
 
 def get_random_string(length):
     letters = string.ascii_lowercase
-    return ''.join(random.choice(letters) for i in range(length))
+    return "".join(random.choice(letters) for i in range(length))
 
 
 def _enforce_estimator_tags_x(X, estimator, kernel=linear_kernel):
-    if bool(getattr(estimator, "metric", None) == 'precomputed'):
-        return pairwise_distances(X, metric='euclidean')
+    if bool(getattr(estimator, "metric", None) == "precomputed"):
+        return pairwise_distances(X, metric="euclidean")
     if bool(getattr(estimator, "_pairwise", False)):
         return kernel(X, X)
     if "dict" in estimator._get_tags()["X_types"]:
-        names = [f'feat_{i}' for i in range(X.shape[1])]
+        names = [f"feat_{i}" for i in range(X.shape[1])]
         return [dict(zip(names, row)) for row in X]
     if "string" in estimator._get_tags()["X_types"]:
         return [get_random_string(8) for i in range(X.shape[0])]
@@ -85,6 +87,7 @@ def test_for_sklearn_estimator(Estimator):
     rng = np.random.RandomState(0)
     X = 3 * rng.uniform(size=(20, 5))
     y = X[:, 0].astype(int)
+    y = _enforce_estimator_tags_y(estimator, y)
     X = _enforce_estimator_tags_x(X, estimator)
 
     est_parameters = set(inspect.signature(Estimator).parameters)
@@ -107,4 +110,5 @@ def test_for_sklearn_estimator(Estimator):
             estimator.fit(X, y)
         except Exception as e:
             raise AssertionError(
-                f"failed with parameters {sample_parameters}") from e
+                f"failed with parameters {sample_parameters}"
+            ) from e
