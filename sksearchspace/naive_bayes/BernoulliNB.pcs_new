@@ -1,0 +1,2 @@
+alpha real [0.01, 100] [1]log
+fit_prior categorical {True, False} [True] # bool

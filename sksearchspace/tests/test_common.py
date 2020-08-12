@@ -80,17 +80,17 @@ def test_for_sklearn_estimator(Estimator):
     # check that configuration parameters are a valid hyperparameter in
     # Estimator
     config_parameters = set(config.get_hyperparameter_names())
-    est_parameters = set(inspect.signature(Estimator).parameters)
-    assert config_parameters <= est_parameters
-
     estimator = _construct_instance(Estimator)
+    est_parameters = estimator.get_params()
+    est_parameters_set = set(est_parameters)
+    assert config_parameters <= est_parameters_set
+
     rng = np.random.RandomState(0)
     X = 3 * rng.uniform(size=(20, 5))
     y = X[:, 0].astype(int)
     y = _enforce_estimator_tags_y(estimator, y)
     X = _enforce_estimator_tags_x(X, estimator)
 
-    est_parameters = set(inspect.signature(Estimator).parameters)
     iterations = 10
     sample_parameters = estimator_space.sample()
 
@@ -102,7 +102,7 @@ def test_for_sklearn_estimator(Estimator):
         # make sure the sampled paramters is a subset of the estimator
         # parameters
         sample_parameters = estimator_space.sample()
-        assert set(sample_parameters) <= est_parameters
+        assert set(sample_parameters) <= est_parameters_set
 
         estimator.set_params(**sample_parameters)
         # Does not fail
