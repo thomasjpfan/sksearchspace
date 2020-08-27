@@ -1,5 +1,4 @@
 """Test supported for supported models"""
-import inspect
 import random
 import string
 
@@ -25,11 +24,9 @@ def _construct_instance(Estimator):
             else:
                 estimator = Estimator(LinearDiscriminantAnalysis())
         else:
-            pytest.skip(
-                "Can't instantiate estimator "
-                f"{Estimator.__name__} which requires "
-                f"parameters {required_parameters}"
-            )
+            pytest.skip("Can't instantiate estimator "
+                        f"{Estimator.__name__} which requires "
+                        f"parameters {required_parameters}")
     else:
         estimator = Estimator()
     return estimator
@@ -110,5 +107,4 @@ def test_for_sklearn_estimator(Estimator):
             estimator.fit(X, y)
         except Exception as e:
             raise AssertionError(
-                f"failed with parameters {sample_parameters}"
-            ) from e
+                f"failed with parameters {sample_parameters}") from e
