@@ -1,1 +1,0 @@
-kernel categorical {linear, poly, rbf, cosine} [linear]

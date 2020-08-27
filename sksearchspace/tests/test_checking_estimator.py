@@ -5,11 +5,12 @@ from sksearchspace import SearchSpace
 
 
 class CheckingEstimator:
-    def __init__(self, a=None, b=True, c=False, random_state=None):
+    def __init__(self, a=None, b=True, c=False, random_state=None, func=None):
         self.a = a
         self.b = b
         self.c = c
         self.random_state = random_state
+        self.func = func
 
 
 def test_checking_estimator_space():
@@ -35,3 +36,4 @@ def test_checking_estimator_space():
         assert sample_parameters['b'] in (True, False)
         assert sample_parameters['c'] in (True, False, None)
         assert isinstance(sample_parameters['random_state'], int)
+        assert callable(sample_parameters['func'])

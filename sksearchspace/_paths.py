@@ -359,4 +359,4 @@ for module, estimators in MODULE_TO_ESTIMATORS.items():
     module_folder = HERE.joinpath(*module.split("."))
     for estimator in estimators:
         name = estimator.__name__
-        ESTIMATOR_TO_PCS_PATH[estimator] = module_folder / f"{name}.pcs_new"
+        ESTIMATOR_TO_PCS_PATH[estimator] = module_folder / f"{name}.json"

@@ -1,44 +1,23 @@
 from importlib import import_module
 import inspect
 from enum import IntFlag
-from io import StringIO
-import warnings
 
 from ._paths import ESTIMATOR_TO_PCS_PATH
 
-with warnings.catch_warnings():
-    # ignore warning from pyparsing
-    warnings.filterwarnings("ignore", category=FutureWarning)
-    from ConfigSpace.read_and_write import pcs_new
+from ConfigSpace.read_and_write import json as configspace_json
+import json
 
 
 class Conversion(IntFlag):
     NULL = 0
     NONE = 1
-    BOOL = 2
-    INT = 3
-    IMPORT = 4
-
-
-def check_bool(value):
-    if value == "True":
-        return True
-    elif value == "False":
-        return False
-    return value
+    IMPORT = 2
 
 
 def check_none(value):
     if value == "None":
         return None
     return value
-
-
-def check_int(value):
-    try:
-        return int(value)
-    except Exception:
-        return value
 
 
 def check_import(value):
@@ -52,57 +31,25 @@ def check_import(value):
 
 class SearchSpace:
     def __init__(self, file_str, seed=None):
-        with StringIO(file_str) as f:
-            self.configuration = pcs_new.read(f)
+        self.configuration = configspace_json.read(file_str)
 
         self.configuration.seed(seed=seed)
         # get comments to check for parameter conversions
-        paramters = set(self.configuration.get_hyperparameter_names())
+        # paramters = set(self.configuration.get_hyperparameter_names())
         self.parameter_conversion = {}
-        for line in file_str.split("\n"):
-            if "|" in line:
-                # conditional
-                continue
-            if line.startswith("{") and line.endswith("}"):
-                # forbidden
-                continue
-            if "}" not in line and "]" not in line:
-                continue
-            if len(line.strip()) == 0:
-                continue
+        json_items = json.loads(file_str)
+        hyperparameters = json_items["hyperparameters"]
+        for hyperparameter in hyperparameters:
+            name = hyperparameter["name"]
+            convert_mask = Conversion.NULL
+            converts = set(hyperparameter.get("converts", []))
 
-            parameter_name = line.split(maxsplit=1)[0]
-            if parameter_name not in paramters:
-                continue
+            if "None" in converts:
+                convert_mask |= Conversion.NONE
+            if "import" in converts:
+                convert_mask |= Conversion.IMPORT
 
-            # find comment
-            pos = line.find("#")
-            if pos == -1:
-                # no comment
-                continue
-
-            comment = line[pos:].lower()
-            none_in_comment = "none" in comment
-            bool_in_comment = "bool" in comment
-            int_in_comment = "int" in comment
-            import_in_comment = "import" in comment
-
-            if (
-                none_in_comment
-                or bool_in_comment
-                or int_in_comment
-                or import_in_comment
-            ):
-                self.parameter_conversion[parameter_name] = Conversion.NULL
-
-            if none_in_comment:
-                self.parameter_conversion[parameter_name] |= Conversion.NONE
-            if bool_in_comment:
-                self.parameter_conversion[parameter_name] |= Conversion.BOOL
-            if int_in_comment:
-                self.parameter_conversion[parameter_name] |= Conversion.INT
-            if import_in_comment:
-                self.parameter_conversion[parameter_name] |= Conversion.IMPORT
+            self.parameter_conversion[name] = convert_mask
 
     def sample(self):
         """Sample configuration."""
@@ -116,10 +63,6 @@ class SearchSpace:
             value = sample[param]
             if Conversion.NONE in conversion:
                 value = check_none(value)
-            if Conversion.BOOL in conversion:
-                value = check_bool(value)
-            if Conversion.INT in conversion:
-                value = check_int(value)
             if Conversion.IMPORT in conversion:
                 value = check_import(value)
             sample[param] = value

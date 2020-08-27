@@ -7,6 +7,9 @@
         "None",
         "cat"
       ],
+      "converts": [
+        "None"
+      ],
       "default": "None",
       "probabilities": null
     },
@@ -14,31 +17,47 @@
       "name": "b",
       "type": "categorical",
       "choices": [
-        "True",
-        "False"
+        true,
+        false
       ],
-      "default": "False",
+      "default": false,
       "probabilities": null
     },
     {
       "name": "c",
       "type": "categorical",
       "choices": [
-        "True",
-        "False",
+        true,
+        false,
         "None"
       ],
-      "default": "True",
+      "converts": [
+        "None"
+      ],
+      "default": true,
       "probabilities": null
     },
     {
       "name": "random_state",
       "type": "categorical",
       "choices": [
-        "42"
+        42
       ],
-      "default": "42",
+      "default": 42,
       "probabilities": null
+    },
+    {
+      "name": "func",
+      "type": "categorical",
+      "choices": [
+        "sklearn.feature_selection.chi2",
+        "sklearn.feature_selection.f_classif"
+      ],
+      "default": "sklearn.feature_selection.f_classif",
+      "probabilities": null,
+      "converts": [
+        "import"
+      ]
     }
   ],
   "conditions": [],

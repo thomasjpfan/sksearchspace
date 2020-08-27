@@ -1,1 +1,0 @@
-fun categorical {logcosh, exp, cube} [logcosh]

@@ -1,7 +1,6 @@
 import pytest
 
 from sksearchspace import SearchSpace
-from sksearchspace._config import check_bool
 from sksearchspace._config import check_none
 
 
@@ -21,12 +20,6 @@ def test_SearchSpace_raises_instances():
     msg = "estimator must be a class and not an instance"
     with pytest.raises(ValueError, match=msg):
         SearchSpace.for_sklearn_estimator(BadEstimator())
-
-
-def test_check_bool():
-    assert check_bool('True') is True
-    assert check_bool('False') is False
-    assert check_bool('cat') == 'cat'
 
 
 def test_check_none():

@@ -1,4 +1,0 @@
-a categorical {None, cat} [None]  # None
-b categorical {True, False} [False]  # bool
-c categorical {True, False, None} [True]  # bool,None
-random_state categorical {42} [42]  # int

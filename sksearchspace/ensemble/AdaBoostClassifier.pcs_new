@@ -1,3 +1,0 @@
-n_estimators integer [50, 500] [50]
-learning_rate real [0.01, 2] [0.1]log
-algorithm categorical {SAMME.R, SAMME} [SAMME.R]
