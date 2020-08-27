@@ -29,6 +29,13 @@ estimator_space.configuration
 #   min_samples_split, Type: UniformInteger, Range: [2, 20], Default: 2
 ```
 
+A json file can be loaded as follows:
+
+```py
+with open("search_space.json", "r") as f:
+    estimator_space = SearchSpace(f.read())
+```
+
 # License
 
 Copyright (c) 2020 Thomas J. Fan

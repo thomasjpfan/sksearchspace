@@ -9,6 +9,21 @@
       ],
       "default": "gini",
       "probabilities": null
+    },
+    {
+      "name": "max_features",
+      "type": "categorical",
+      "choices": [
+        "auto",
+        "sqrt",
+        "log2",
+        "None"
+      ],
+      "default": "auto",
+      "probabilities": null,
+      "converts": [
+        "None"
+      ]
     }
   ],
   "conditions": [],

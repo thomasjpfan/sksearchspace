@@ -12,11 +12,15 @@
     },
     {
       "name": "max_features",
-      "type": "uniform_float",
-      "log": false,
-      "lower": 0.1,
-      "upper": 1.0,
-      "default": 1.0
+      "type": "categorical",
+      "choices": [
+        "auto",
+        "sqrt",
+        "log2",
+        "None"
+      ],
+      "default": "auto",
+      "probabilities": null
     }
   ],
   "conditions": [],

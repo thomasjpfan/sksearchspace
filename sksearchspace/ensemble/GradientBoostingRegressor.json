@@ -7,6 +7,34 @@
       "lower": 0.01,
       "upper": 1.0,
       "default": 1.0
+    },
+    {
+      "name": "subsample",
+      "type": "uniform_float",
+      "lower": 0.01,
+      "upper": 1.0,
+      "default": 1.0
+    },
+    {
+      "name": "loss",
+      "type": "categorical",
+      "choices": [
+        "ls",
+        "huber",
+        "lad"
+      ],
+      "default": "ls",
+      "probabilities": null
+    },
+    {
+      "name": "criterion",
+      "type": "categorical",
+      "choices": [
+        "friedman_mse",
+        "mae"
+      ],
+      "default": "mae",
+      "probabilities": null
     }
   ],
   "conditions": [],

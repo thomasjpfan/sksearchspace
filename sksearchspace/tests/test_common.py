@@ -80,7 +80,8 @@ def test_for_sklearn_estimator(Estimator):
     estimator = _construct_instance(Estimator)
     est_parameters = estimator.get_params()
     est_parameters_set = set(est_parameters)
-    assert config_parameters <= est_parameters_set
+    assert config_parameters <= est_parameters_set, \
+        config_parameters - est_parameters_set
 
     rng = np.random.RandomState(0)
     X = 3 * rng.uniform(size=(20, 5))
@@ -99,7 +100,8 @@ def test_for_sklearn_estimator(Estimator):
         # make sure the sampled paramters is a subset of the estimator
         # parameters
         sample_parameters = estimator_space.sample()
-        assert set(sample_parameters) <= est_parameters_set
+        assert set(sample_parameters) <= est_parameters_set, \
+               set(sample_parameters) - est_parameters_set
 
         estimator.set_params(**sample_parameters)
         # Does not fail

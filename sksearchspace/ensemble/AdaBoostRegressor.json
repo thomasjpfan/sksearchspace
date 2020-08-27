@@ -15,6 +15,17 @@
       "lower": 50,
       "upper": 500,
       "default": 50
+    },
+    {
+      "name": "loss",
+      "type": "categorical",
+      "choices": [
+        "linear",
+        "square",
+        "exponential"
+      ],
+      "default": "linear",
+      "probabilities": null
     }
   ],
   "conditions": [],

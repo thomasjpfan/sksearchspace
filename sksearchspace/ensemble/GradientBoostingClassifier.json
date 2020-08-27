@@ -7,6 +7,23 @@
       "lower": 0.01,
       "upper": 1.0,
       "default": 1.0
+    },
+    {
+      "name": "subsample",
+      "type": "uniform_float",
+      "lower": 0.01,
+      "upper": 1.0,
+      "default": 1.0
+    },
+    {
+      "name": "criterion",
+      "type": "categorical",
+      "choices": [
+        "friedman_mse",
+        "mae"
+      ],
+      "default": "friedman_mse",
+      "probabilities": null
     }
   ],
   "conditions": [],
