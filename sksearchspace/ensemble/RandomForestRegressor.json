@@ -20,7 +20,10 @@
         "None"
       ],
       "default": "auto",
-      "probabilities": null
+      "probabilities": null,
+      "converts": [
+        "None"
+      ]
     }
   ],
   "conditions": [],

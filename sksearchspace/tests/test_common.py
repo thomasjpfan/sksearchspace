@@ -84,7 +84,7 @@ def test_for_sklearn_estimator(Estimator):
         config_parameters - est_parameters_set
 
     rng = np.random.RandomState(0)
-    X = 3 * rng.uniform(size=(20, 5))
+    X = 3 * rng.uniform(size=(200, 15))
     y = X[:, 0].astype(int)
     y = _enforce_estimator_tags_y(estimator, y)
     X = _enforce_estimator_tags_x(X, estimator)

@@ -13,6 +13,7 @@
       "type": "uniform_float",
       "lower": 0.01,
       "upper": 1.0,
+      "log": false,
       "default": 1.0
     },
     {
