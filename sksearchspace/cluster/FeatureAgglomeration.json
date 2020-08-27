@@ -1,0 +1,96 @@
+{
+  "hyperparameters": [
+    {
+      "name": "affinity",
+      "type": "categorical",
+      "choices": [
+        "l1",
+        "l2",
+        "manhattan",
+        "cosine",
+        "euclidean"
+      ],
+      "default": "euclidean",
+      "probabilities": null
+    },
+    {
+      "name": "linkage",
+      "type": "categorical",
+      "choices": [
+        "ward",
+        "average"
+      ],
+      "default": "ward",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [
+    {
+      "name": "affinity",
+      "type": "AND",
+      "clauses": [
+        {
+          "name": "affinity",
+          "type": "EQUALS",
+          "value": "cosine"
+        },
+        {
+          "name": "linkage",
+          "type": "EQUALS",
+          "value": "ward"
+        }
+      ]
+    },
+    {
+      "name": "affinity",
+      "type": "AND",
+      "clauses": [
+        {
+          "name": "affinity",
+          "type": "EQUALS",
+          "value": "l1"
+        },
+        {
+          "name": "linkage",
+          "type": "EQUALS",
+          "value": "ward"
+        }
+      ]
+    },
+    {
+      "name": "affinity",
+      "type": "AND",
+      "clauses": [
+        {
+          "name": "affinity",
+          "type": "EQUALS",
+          "value": "l2"
+        },
+        {
+          "name": "linkage",
+          "type": "EQUALS",
+          "value": "ward"
+        }
+      ]
+    },
+    {
+      "name": "affinity",
+      "type": "AND",
+      "clauses": [
+        {
+          "name": "affinity",
+          "type": "EQUALS",
+          "value": "manhattan"
+        },
+        {
+          "name": "linkage",
+          "type": "EQUALS",
+          "value": "ward"
+        }
+      ]
+    }
+  ],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

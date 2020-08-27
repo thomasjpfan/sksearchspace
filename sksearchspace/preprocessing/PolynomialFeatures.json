@@ -1,0 +1,16 @@
+{
+  "hyperparameters": [
+    {
+      "name": "degree",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 2,
+      "upper": 3,
+      "default": 2
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

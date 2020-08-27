@@ -1,0 +1,18 @@
+{
+  "hyperparameters": [
+    {
+      "name": "criterion",
+      "type": "categorical",
+      "choices": [
+        "gini",
+        "entropy"
+      ],
+      "default": "gini",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

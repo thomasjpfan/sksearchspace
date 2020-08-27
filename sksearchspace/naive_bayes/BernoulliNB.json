@@ -1,0 +1,26 @@
+{
+  "hyperparameters": [
+    {
+      "name": "alpha",
+      "type": "uniform_float",
+      "log": true,
+      "lower": 0.01,
+      "upper": 100.0,
+      "default": 1.0
+    },
+    {
+      "name": "fit_prior",
+      "type": "categorical",
+      "choices": [
+        true,
+        false
+      ],
+      "default": true,
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

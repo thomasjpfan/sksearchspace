@@ -1,0 +1,48 @@
+{
+  "hyperparameters": [
+    {
+      "name": "a",
+      "type": "categorical",
+      "choices": [
+        "None",
+        "cat"
+      ],
+      "default": "None",
+      "probabilities": null
+    },
+    {
+      "name": "b",
+      "type": "categorical",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "default": "False",
+      "probabilities": null
+    },
+    {
+      "name": "c",
+      "type": "categorical",
+      "choices": [
+        "True",
+        "False",
+        "None"
+      ],
+      "default": "True",
+      "probabilities": null
+    },
+    {
+      "name": "random_state",
+      "type": "categorical",
+      "choices": [
+        "42"
+      ],
+      "default": "42",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

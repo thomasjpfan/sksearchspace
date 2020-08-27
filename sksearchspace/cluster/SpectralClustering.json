@@ -1,0 +1,18 @@
+{
+  "hyperparameters": [
+    {
+      "name": "affinity",
+      "type": "categorical",
+      "choices": [
+        "rbf",
+        "nearest_neighbors"
+      ],
+      "default": "rbf",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

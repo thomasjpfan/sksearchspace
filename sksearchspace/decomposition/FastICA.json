@@ -1,0 +1,19 @@
+{
+  "hyperparameters": [
+    {
+      "name": "fun",
+      "type": "categorical",
+      "choices": [
+        "logcosh",
+        "exp",
+        "cube"
+      ],
+      "default": "logcosh",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

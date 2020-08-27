@@ -1,0 +1,20 @@
+{
+  "hyperparameters": [
+    {
+      "name": "kernel",
+      "type": "categorical",
+      "choices": [
+        "linear",
+        "poly",
+        "rbf",
+        "cosine"
+      ],
+      "default": "linear",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

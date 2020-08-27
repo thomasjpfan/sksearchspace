@@ -1,0 +1,34 @@
+{
+  "hyperparameters": [
+    {
+      "name": "criterion",
+      "type": "categorical",
+      "choices": [
+        "gini",
+        "entropy"
+      ],
+      "default": "gini",
+      "probabilities": null
+    },
+    {
+      "name": "min_samples_leaf",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 1,
+      "upper": 20,
+      "default": 1
+    },
+    {
+      "name": "min_samples_split",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 2,
+      "upper": 20,
+      "default": 2
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

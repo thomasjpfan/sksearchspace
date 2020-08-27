@@ -1,0 +1,26 @@
+{
+  "hyperparameters": [
+    {
+      "name": "criterion",
+      "type": "categorical",
+      "choices": [
+        "gini",
+        "entropy"
+      ],
+      "default": "gini",
+      "probabilities": null
+    },
+    {
+      "name": "max_features",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 0.1,
+      "upper": 1.0,
+      "default": 1.0
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

@@ -1,0 +1,17 @@
+{
+  "hyperparameters": [
+    {
+      "name": "handle_unknown",
+      "type": "categorical",
+      "choices": [
+        "ignore"
+      ],
+      "default": "ignore",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

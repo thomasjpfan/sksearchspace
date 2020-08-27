@@ -1,0 +1,19 @@
+{
+  "hyperparameters": [
+    {
+      "name": "strategy",
+      "type": "categorical",
+      "choices": [
+        "uniform",
+        "quantile",
+        "kmeans"
+      ],
+      "default": "quantile",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

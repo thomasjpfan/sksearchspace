@@ -1,0 +1,19 @@
+{
+  "hyperparameters": [
+    {
+      "name": "criterion",
+      "type": "categorical",
+      "choices": [
+        "mse",
+        "mae",
+        "friedman_mse"
+      ],
+      "default": "mse",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

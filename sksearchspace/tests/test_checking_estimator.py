@@ -13,7 +13,7 @@ class CheckingEstimator:
 
 
 def test_checking_estimator_space():
-    pcs_path = Path(__file__).parent / "CheckingEstimator.pcs_new"
+    pcs_path = Path(__file__).parent / "CheckingEstimator.json"
     with pcs_path.open('r') as f:
         estimator_space = SearchSpace(f.read(), seed=42)
     assert isinstance(estimator_space, SearchSpace)

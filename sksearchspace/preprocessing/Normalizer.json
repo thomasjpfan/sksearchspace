@@ -1,0 +1,19 @@
+{
+  "hyperparameters": [
+    {
+      "name": "norm",
+      "type": "categorical",
+      "choices": [
+        "l1",
+        "l2",
+        "max"
+      ],
+      "default": "l2",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}

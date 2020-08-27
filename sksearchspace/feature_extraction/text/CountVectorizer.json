@@ -1,0 +1,19 @@
+{
+  "hyperparameters": [
+    {
+      "name": "analyzer",
+      "type": "categorical",
+      "choices": [
+        "word",
+        "char",
+        "char_wb"
+      ],
+      "default": "word",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
+}
