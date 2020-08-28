@@ -72,16 +72,10 @@ def _enforce_estimator_tags_y(estimator, y):
 def test_for_sklearn_estimator(Estimator):
     estimator_space = SearchSpace.for_sklearn_estimator(Estimator, seed=10)
     assert isinstance(estimator_space, SearchSpace)
-    config = estimator_space.configuration
 
-    # check that configuration parameters are a valid hyperparameter in
-    # Estimator
-    config_parameters = set(config.get_hyperparameter_names())
     estimator = _construct_instance(Estimator)
     est_parameters = estimator.get_params()
     est_parameters_set = set(est_parameters)
-    assert config_parameters <= est_parameters_set, \
-        config_parameters - est_parameters_set
 
     rng = np.random.RandomState(0)
     X = 3 * rng.uniform(size=(200, 15))

@@ -12,6 +12,7 @@ class Conversion(IntFlag):
     NULL = 0
     NONE = 1
     IMPORT = 2
+    CHOICE = 3
 
 
 def check_none(value):
@@ -48,6 +49,8 @@ class SearchSpace:
                 convert_mask |= Conversion.NONE
             if "import" in converts:
                 convert_mask |= Conversion.IMPORT
+            if "choice" in converts:
+                convert_mask |= Conversion.CHOICE
 
             self.parameter_conversion[name] = convert_mask
 
@@ -58,14 +61,28 @@ class SearchSpace:
         if not self.parameter_conversion:
             return sample
 
+        sample_keys = list(sample.keys())
         # there are parameters to convert
-        for param, conversion in self.parameter_conversion.items():
+        for param in sample_keys:
             value = sample[param]
+            conversion = self.parameter_conversion[param]
             if Conversion.NONE in conversion:
                 value = check_none(value)
             if Conversion.IMPORT in conversion:
                 value = check_import(value)
             sample[param] = value
+
+        keys_to_remove = []
+        for param in sample_keys:
+            value = sample[param]
+            conversion = self.parameter_conversion[param]
+            if Conversion.CHOICE in conversion:
+                choice = sample[param]
+                sample[param] = sample[choice]
+                keys_to_remove.append(choice)
+
+        for keys in keys_to_remove:
+            del sample[keys]
 
         return sample
 

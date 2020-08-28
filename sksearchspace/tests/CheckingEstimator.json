@@ -47,6 +47,35 @@
       "probabilities": null
     },
     {
+      "name": "d",
+      "type": "categorical",
+      "choices": [
+        "d_int",
+        "d_none"
+      ],
+      "converts": [
+        "choice"
+      ],
+      "default": "d_int",
+      "probabilities": null
+    },
+    {
+      "name": "d_int",
+      "type": "uniform_float",
+      "log": false,
+      "lower": 1.0,
+      "upper": 3.0,
+      "default": 1.0
+    },
+    {
+      "name": "d_none",
+      "type": "constant",
+      "value": "None",
+      "converts": [
+        "None"
+      ]
+    },
+    {
       "name": "func",
       "type": "categorical",
       "choices": [
@@ -60,7 +89,20 @@
       ]
     }
   ],
-  "conditions": [],
+  "conditions": [
+    {
+      "child": "d_int",
+      "parent": "d",
+      "type": "EQ",
+      "value": "d_int"
+    },
+    {
+      "child": "d_none",
+      "parent": "d",
+      "type": "EQ",
+      "value": "d_none"
+    }
+  ],
   "forbiddens": [],
   "python_module_version": "0.4.13",
   "json_format_version": 0.2

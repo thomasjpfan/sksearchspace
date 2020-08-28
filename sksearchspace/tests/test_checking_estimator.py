@@ -5,10 +5,17 @@ from sksearchspace import SearchSpace
 
 
 class CheckingEstimator:
-    def __init__(self, a=None, b=True, c=False, random_state=None, func=None):
+    def __init__(self,
+                 a=None,
+                 b=True,
+                 c=False,
+                 random_state=None,
+                 func=None,
+                 d=None):
         self.a = a
         self.b = b
         self.c = c
+        self.d = d
         self.random_state = random_state
         self.func = func
 
@@ -18,13 +25,7 @@ def test_checking_estimator_space():
     with pcs_path.open('r') as f:
         estimator_space = SearchSpace(f.read(), seed=42)
     assert isinstance(estimator_space, SearchSpace)
-    config = estimator_space.configuration
-
-    # check that configuration parameters are a valid hyperparameter in
-    # Estimator
-    config_parameters = set(config.get_hyperparameter_names())
     est_parameters = set(inspect.signature(CheckingEstimator).parameters)
-    assert config_parameters <= est_parameters
 
     for _ in range(40):
         # make sure the sampled paramters is a subset of the estimator

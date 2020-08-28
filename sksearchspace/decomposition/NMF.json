@@ -1,6 +1,49 @@
 {
-  "hyperparameters": [],
-  "conditions": [],
+  "hyperparameters": [
+    {
+      "name": "n_components",
+      "type": "categorical",
+      "choices": [
+        "n_components_int",
+        "n_components_none"
+      ],
+      "default": "n_components_none",
+      "probabilities": null,
+      "converts": [
+        "choice"
+      ]
+    },
+    {
+      "name": "n_components_int",
+      "type": "uniform_int",
+      "log": false,
+      "lower": 2,
+      "upper": 30,
+      "default": 15
+    },
+    {
+      "name": "n_components_none",
+      "type": "constant",
+      "value": "None",
+      "converts": [
+        "None"
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "child": "n_components_int",
+      "parent": "n_components",
+      "type": "EQ",
+      "value": "n_components_int"
+    },
+    {
+      "child": "n_components_none",
+      "parent": "n_components",
+      "type": "EQ",
+      "value": "n_components_none"
+    }
+  ],
   "forbiddens": [],
   "python_module_version": "0.4.13",
   "json_format_version": 0.2
