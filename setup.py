@@ -14,6 +14,6 @@ setup(name="sksearchspace",
       packages=find_packages(include=["sksearchspace"]),
       include_package_data=True,
       python_requires='>=3.6',
-      install_requires=["scikit-learn==0.23.1", "ConfigSpace>=0.4.13"],
+      install_requires=["scikit-learn==0.23.1", "ConfigSpace==0.4.13"],
       zip_safe=True,
       license='MIT')
