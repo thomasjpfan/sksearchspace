@@ -1,5 +1,14 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_neighbors",
+      "type": "uniform_int",
+      "lower": 5,
+      "upper": 20,
+      "default": 5,
+      "log": false
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

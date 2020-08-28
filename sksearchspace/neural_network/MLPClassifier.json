@@ -1,5 +1,14 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "alpha",
+      "type": "uniform_float",
+      "lower": 1e-10,
+      "upper": 1.0,
+      "default": 0.0001,
+      "log": true
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

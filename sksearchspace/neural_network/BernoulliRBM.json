@@ -1,5 +1,14 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_components",
+      "type": "uniform_int",
+      "lower": 2,
+      "upper": 256,
+      "default": 256,
+      "log": false
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",
