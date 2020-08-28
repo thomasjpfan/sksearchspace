@@ -100,6 +100,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Ridge
 from sklearn.linear_model import RidgeCV
 from sklearn.linear_model import SGDRegressor
+from sklearn.linear_model import ElasticNet
 from sklearn.linear_model import ElasticNetCV
 from sklearn.linear_model import Lars
 from sklearn.linear_model import LarsCV
@@ -280,6 +281,7 @@ MODULE_TO_ESTIMATORS = {
         Ridge,
         RidgeCV,
         SGDRegressor,
+        ElasticNet,
         ElasticNetCV,
         Lars,
         LarsCV,

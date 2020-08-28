@@ -1,5 +1,27 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "loss",
+      "type": "categorical",
+      "choices": [
+        "hinge",
+        "log",
+        "modified_huber",
+        "squared_hinge",
+        "perceptron"
+      ],
+      "default": "hinge",
+      "probabilities": null
+    },
+    {
+      "name": "alpha",
+      "type": "uniform_float",
+      "log": true,
+      "lower": 1e-10,
+      "upper": 1.0,
+      "default": 0.0001
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

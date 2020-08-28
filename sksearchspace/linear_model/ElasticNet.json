@@ -1,0 +1,16 @@
+{
+    "hyperparameters": [
+        {
+            "name": "l1_ratio",
+            "type": "uniform_float",
+            "log": false,
+            "lower": 0.0,
+            "upper": 1.0,
+            "default": 0.5
+        }
+    ],
+    "conditions": [],
+    "forbiddens": [],
+    "python_module_version": "0.4.13",
+    "json_format_version": 0.2
+}

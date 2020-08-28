@@ -1,5 +1,16 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "criterion",
+      "type": "categorical",
+      "choices": [
+        "bic",
+        "aic"
+      ],
+      "default": "aic",
+      "probabilities": null
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

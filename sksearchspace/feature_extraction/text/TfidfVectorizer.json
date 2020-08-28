@@ -10,6 +10,16 @@
       ],
       "default": "word",
       "probabilities": null
+    },
+    {
+      "name": "norm",
+      "type": "categorical",
+      "choices": [
+        "l1",
+        "l2"
+      ],
+      "default": "l2",
+      "probabilities": null
     }
   ],
   "conditions": [],
