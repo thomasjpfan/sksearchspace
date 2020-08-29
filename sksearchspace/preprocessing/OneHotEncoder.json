@@ -2,12 +2,8 @@
   "hyperparameters": [
     {
       "name": "handle_unknown",
-      "type": "categorical",
-      "choices": [
-        "ignore"
-      ],
-      "default": "ignore",
-      "probabilities": null
+      "type": "constant",
+      "value": "ignore"
     }
   ],
   "conditions": [],
