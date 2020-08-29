@@ -4,8 +4,8 @@
       "name": "alpha",
       "type": "uniform_float",
       "log": true,
-      "lower": 0.01,
-      "upper": 100.0,
+      "lower": 1e-10,
+      "upper": 1.0,
       "default": 1.0
     }
   ],
