@@ -1,5 +1,31 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_components",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "algorithm",
+      "type": "constant",
+      "value": "randomized"
+    },
+    {
+      "name": "n_iter",
+      "type": "constant",
+      "value": 5
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.0
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

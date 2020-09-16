@@ -1,6 +1,20 @@
 {
   "hyperparameters": [
     {
+      "name": "store_covariance",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.0001
+    },
+    {
       "name": "reg_param",
       "type": "uniform_int",
       "log": false,

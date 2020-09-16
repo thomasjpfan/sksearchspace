@@ -1,5 +1,11 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "percentile",
+      "type": "constant",
+      "value": 10
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

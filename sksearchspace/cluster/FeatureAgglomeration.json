@@ -1,6 +1,16 @@
 {
   "hyperparameters": [
     {
+      "name": "n_clusters",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "compute_full_tree",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
       "name": "affinity",
       "type": "categorical",
       "choices": [

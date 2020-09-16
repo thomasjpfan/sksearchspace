@@ -1,17 +1,37 @@
 {
-    "hyperparameters": [
-        {
-            "name": "random_state",
-            "type": "categorical",
-            "choices": [
-                42
-            ],
-            "default": 42,
-            "probabilities": null
-        }
-    ],
-    "conditions": [],
-    "forbiddens": [],
-    "python_module_version": "0.4.13",
-    "json_format_version": 0.2
+  "hyperparameters": [
+    {
+      "name": "damping",
+      "type": "constant",
+      "value": 0.5
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 200
+    },
+    {
+      "name": "convergence_iter",
+      "type": "constant",
+      "value": 15
+    },
+    {
+      "name": "affinity",
+      "type": "constant",
+      "value": "euclidean"
+    },
+    {
+      "name": "random_state",
+      "type": "categorical",
+      "choices": [
+        42
+      ],
+      "default": 42,
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
 }

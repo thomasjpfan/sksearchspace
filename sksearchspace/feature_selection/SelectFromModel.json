@@ -1,5 +1,20 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "prefit",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "norm_order",
+      "type": "constant",
+      "value": 1
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

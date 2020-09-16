@@ -1,5 +1,20 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_components",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "scale",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

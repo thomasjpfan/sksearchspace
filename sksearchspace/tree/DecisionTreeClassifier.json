@@ -1,6 +1,31 @@
 {
   "hyperparameters": [
     {
+      "name": "splitter",
+      "type": "constant",
+      "value": "best"
+    },
+    {
+      "name": "min_weight_fraction_leaf",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
+      "name": "min_impurity_decrease",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "ccp_alpha",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
       "name": "criterion",
       "type": "categorical",
       "choices": [

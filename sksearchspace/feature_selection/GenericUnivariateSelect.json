@@ -1,5 +1,16 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "mode",
+      "type": "constant",
+      "value": "percentile"
+    },
+    {
+      "name": "param",
+      "type": "constant",
+      "value": 1e-05
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

@@ -1,5 +1,11 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "categories",
+      "type": "constant",
+      "value": "auto"
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

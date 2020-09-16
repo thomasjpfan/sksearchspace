@@ -1,20 +1,35 @@
 {
-    "hyperparameters": [
-        {
-            "name": "linkage",
-            "type": "categorical",
-            "choices": [
-                "ward",
-                "complete",
-                "average",
-                "single"
-            ],
-            "default": "ward",
-            "probabilities": null
-        }
-    ],
-    "conditions": [],
-    "forbiddens": [],
-    "python_module_version": "0.4.13",
-    "json_format_version": 0.2
+  "hyperparameters": [
+    {
+      "name": "n_clusters",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "affinity",
+      "type": "constant",
+      "value": "euclidean"
+    },
+    {
+      "name": "compute_full_tree",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "linkage",
+      "type": "categorical",
+      "choices": [
+        "ward",
+        "complete",
+        "average",
+        "single"
+      ],
+      "default": "ward",
+      "probabilities": null
+    }
+  ],
+  "conditions": [],
+  "forbiddens": [],
+  "python_module_version": "0.4.13",
+  "json_format_version": 0.2
 }

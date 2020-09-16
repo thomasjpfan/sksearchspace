@@ -1,6 +1,26 @@
 {
   "hyperparameters": [
     {
+      "name": "kernel",
+      "type": "constant",
+      "value": "rbf"
+    },
+    {
+      "name": "n_neighbors",
+      "type": "constant",
+      "value": 7
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 1000
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.001
+    },
+    {
       "name": "gamma",
       "type": "uniform_float",
       "lower": 0.0,

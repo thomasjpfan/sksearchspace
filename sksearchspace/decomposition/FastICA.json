@@ -1,6 +1,35 @@
 {
   "hyperparameters": [
     {
+      "name": "algorithm",
+      "type": "constant",
+      "value": "parallel"
+    },
+    {
+      "name": "whiten",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 200
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.0001
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
       "name": "fun",
       "type": "categorical",
       "choices": [

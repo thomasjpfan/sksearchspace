@@ -1,6 +1,35 @@
 {
   "hyperparameters": [
     {
+      "name": "whiten",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "svd_solver",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "iterated_power",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
       "name": "n_components",
       "type": "uniform_float",
       "log": false,

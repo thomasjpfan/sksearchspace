@@ -1,6 +1,33 @@
 {
   "hyperparameters": [
     {
+      "name": "use_idf",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "smooth_idf",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "sublinear_tf",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
       "name": "norm",
       "type": "categorical",
       "choices": [

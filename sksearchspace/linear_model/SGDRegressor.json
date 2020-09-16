@@ -1,6 +1,97 @@
 {
   "hyperparameters": [
     {
+      "name": "penalty",
+      "type": "constant",
+      "value": "l2"
+    },
+    {
+      "name": "l1_ratio",
+      "type": "constant",
+      "value": 0.15
+    },
+    {
+      "name": "fit_intercept",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 1000
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.001
+    },
+    {
+      "name": "shuffle",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "epsilon",
+      "type": "constant",
+      "value": 0.1
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
+      "name": "learning_rate",
+      "type": "constant",
+      "value": "invscaling"
+    },
+    {
+      "name": "eta0",
+      "type": "constant",
+      "value": 0.01
+    },
+    {
+      "name": "power_t",
+      "type": "constant",
+      "value": 0.25
+    },
+    {
+      "name": "early_stopping",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "validation_fraction",
+      "type": "constant",
+      "value": 0.1
+    },
+    {
+      "name": "n_iter_no_change",
+      "type": "constant",
+      "value": 5
+    },
+    {
+      "name": "average",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
       "name": "loss",
       "type": "categorical",
       "choices": [

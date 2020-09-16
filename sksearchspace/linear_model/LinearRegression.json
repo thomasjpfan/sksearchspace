@@ -1,5 +1,24 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "fit_intercept",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "normalize",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

@@ -1,5 +1,40 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_estimators",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "max_samples",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "contamination",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "max_features",
+      "type": "constant",
+      "value": 1.0
+    },
+    {
+      "name": "bootstrap",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

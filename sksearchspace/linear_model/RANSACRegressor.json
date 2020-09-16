@@ -1,5 +1,41 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "max_trials",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "max_skips",
+      "type": "constant",
+      "value": Infinity
+    },
+    {
+      "name": "stop_n_inliers",
+      "type": "constant",
+      "value": Infinity
+    },
+    {
+      "name": "stop_score",
+      "type": "constant",
+      "value": Infinity
+    },
+    {
+      "name": "stop_probability",
+      "type": "constant",
+      "value": 0.99
+    },
+    {
+      "name": "loss",
+      "type": "constant",
+      "value": "absolute_loss"
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

@@ -1,6 +1,31 @@
 {
   "hyperparameters": [
     {
+      "name": "weights",
+      "type": "constant",
+      "value": "uniform"
+    },
+    {
+      "name": "algorithm",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "leaf_size",
+      "type": "constant",
+      "value": 30
+    },
+    {
+      "name": "p",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "metric",
+      "type": "constant",
+      "value": "minkowski"
+    },
+    {
       "name": "n_neighbors",
       "type": "uniform_int",
       "lower": 5,

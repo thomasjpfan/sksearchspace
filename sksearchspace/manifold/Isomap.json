@@ -1,6 +1,41 @@
 {
   "hyperparameters": [
     {
+      "name": "n_components",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "eigen_solver",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "path_method",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "neighbors_algorithm",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "metric",
+      "type": "constant",
+      "value": "minkowski"
+    },
+    {
+      "name": "p",
+      "type": "constant",
+      "value": 2
+    },
+    {
       "name": "n_neighbors",
       "type": "uniform_int",
       "lower": 5,

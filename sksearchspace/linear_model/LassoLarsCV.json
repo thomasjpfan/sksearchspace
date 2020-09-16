@@ -1,5 +1,53 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "fit_intercept",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 500
+    },
+    {
+      "name": "normalize",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "precompute",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "max_n_alphas",
+      "type": "constant",
+      "value": 1000
+    },
+    {
+      "name": "eps",
+      "type": "constant",
+      "value": 2.220446049250313e-16
+    },
+    {
+      "name": "positive",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

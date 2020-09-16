@@ -1,5 +1,29 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "store_precision",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "assume_centered",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "block_size",
+      "type": "constant",
+      "value": 1000
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

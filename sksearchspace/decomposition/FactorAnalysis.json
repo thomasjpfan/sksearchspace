@@ -1,5 +1,31 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.01
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 1000
+    },
+    {
+      "name": "svd_method",
+      "type": "constant",
+      "value": "randomized"
+    },
+    {
+      "name": "iterated_power",
+      "type": "constant",
+      "value": 3
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

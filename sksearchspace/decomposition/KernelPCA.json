@@ -1,6 +1,54 @@
 {
   "hyperparameters": [
     {
+      "name": "degree",
+      "type": "constant",
+      "value": 3
+    },
+    {
+      "name": "coef0",
+      "type": "constant",
+      "value": 1
+    },
+    {
+      "name": "alpha",
+      "type": "constant",
+      "value": 1.0
+    },
+    {
+      "name": "fit_inverse_transform",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "eigen_solver",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "remove_zero_eig",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
       "name": "kernel",
       "type": "categorical",
       "choices": [

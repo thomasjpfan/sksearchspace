@@ -1,5 +1,35 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "fit_intercept",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "max_subpopulation",
+      "type": "constant",
+      "value": 10000.0
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 300
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.001
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

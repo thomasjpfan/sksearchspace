@@ -1,5 +1,21 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "gamma",
+      "type": "constant",
+      "value": 1.0
+    },
+    {
+      "name": "n_components",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

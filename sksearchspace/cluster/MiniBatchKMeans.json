@@ -1,5 +1,60 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_clusters",
+      "type": "constant",
+      "value": 8
+    },
+    {
+      "name": "init",
+      "type": "constant",
+      "value": "k-means++"
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "batch_size",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "compute_labels",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "max_no_improvement",
+      "type": "constant",
+      "value": 10
+    },
+    {
+      "name": "n_init",
+      "type": "constant",
+      "value": 3
+    },
+    {
+      "name": "reassignment_ratio",
+      "type": "constant",
+      "value": 0.01
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

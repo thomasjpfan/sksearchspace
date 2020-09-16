@@ -1,6 +1,21 @@
 {
   "hyperparameters": [
     {
+      "name": "alpha",
+      "type": "constant",
+      "value": 1
+    },
+    {
+      "name": "degree",
+      "type": "constant",
+      "value": 3
+    },
+    {
+      "name": "coef0",
+      "type": "constant",
+      "value": 1
+    },
+    {
       "name": "kernel",
       "type": "categorical",
       "choices": [

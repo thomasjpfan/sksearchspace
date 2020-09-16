@@ -1,6 +1,40 @@
 {
   "hyperparameters": [
     {
+      "name": "algorithm",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "leaf_size",
+      "type": "constant",
+      "value": 30
+    },
+    {
+      "name": "metric",
+      "type": "constant",
+      "value": "minkowski"
+    },
+    {
+      "name": "p",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "contamination",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "novelty",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
       "name": "n_neighbors",
       "type": "uniform_int",
       "lower": 5,

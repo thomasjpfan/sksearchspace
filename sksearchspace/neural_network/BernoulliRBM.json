@@ -1,6 +1,26 @@
 {
   "hyperparameters": [
     {
+      "name": "learning_rate",
+      "type": "constant",
+      "value": 0.1
+    },
+    {
+      "name": "batch_size",
+      "type": "constant",
+      "value": 10
+    },
+    {
+      "name": "n_iter",
+      "type": "constant",
+      "value": 10
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
       "name": "n_components",
       "type": "uniform_int",
       "lower": 2,

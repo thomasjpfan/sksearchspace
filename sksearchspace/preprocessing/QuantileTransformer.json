@@ -1,5 +1,35 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_quantiles",
+      "type": "constant",
+      "value": 1000
+    },
+    {
+      "name": "output_distribution",
+      "type": "constant",
+      "value": "uniform"
+    },
+    {
+      "name": "ignore_implicit_zeros",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "subsample",
+      "type": "constant",
+      "value": 100000
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

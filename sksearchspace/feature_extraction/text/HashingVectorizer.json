@@ -1,6 +1,58 @@
 {
   "hyperparameters": [
     {
+      "name": "input",
+      "type": "constant",
+      "value": "content"
+    },
+    {
+      "name": "encoding",
+      "type": "constant",
+      "value": "utf-8"
+    },
+    {
+      "name": "decode_error",
+      "type": "constant",
+      "value": "strict"
+    },
+    {
+      "name": "lowercase",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "token_pattern",
+      "type": "constant",
+      "value": "(?u)\\b\\w\\w+\\b"
+    },
+    {
+      "name": "n_features",
+      "type": "constant",
+      "value": 1048576
+    },
+    {
+      "name": "binary",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "alternate_sign",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
       "name": "analyzer",
       "type": "categorical",
       "choices": [

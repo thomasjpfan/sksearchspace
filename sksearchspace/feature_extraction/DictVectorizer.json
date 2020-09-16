@@ -1,5 +1,29 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "separator",
+      "type": "constant",
+      "value": "="
+    },
+    {
+      "name": "sparse",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "sort",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

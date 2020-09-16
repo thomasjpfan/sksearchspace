@@ -1,5 +1,15 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "whiten",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

@@ -1,6 +1,48 @@
 {
   "hyperparameters": [
     {
+      "name": "fit_intercept",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "normalize",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "precompute",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 500
+    },
+    {
+      "name": "eps",
+      "type": "constant",
+      "value": 2.220446049250313e-16
+    },
+    {
+      "name": "positive",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
       "name": "criterion",
       "type": "categorical",
       "choices": [

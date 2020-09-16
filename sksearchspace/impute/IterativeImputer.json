@@ -1,5 +1,58 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "sample_posterior",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 10
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.001
+    },
+    {
+      "name": "initial_strategy",
+      "type": "constant",
+      "value": "mean"
+    },
+    {
+      "name": "imputation_order",
+      "type": "constant",
+      "value": "ascending"
+    },
+    {
+      "name": "skip_complete",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
+      "name": "add_indicator",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

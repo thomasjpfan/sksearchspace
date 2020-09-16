@@ -1,6 +1,56 @@
 {
   "hyperparameters": [
     {
+      "name": "n_components",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "reg",
+      "type": "constant",
+      "value": 0.001
+    },
+    {
+      "name": "eigen_solver",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 1e-06
+    },
+    {
+      "name": "max_iter",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "method",
+      "type": "constant",
+      "value": "standard"
+    },
+    {
+      "name": "hessian_tol",
+      "type": "constant",
+      "value": 0.0001
+    },
+    {
+      "name": "modified_tol",
+      "type": "constant",
+      "value": 1e-12
+    },
+    {
+      "name": "neighbors_algorithm",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
       "name": "n_neighbors",
       "type": "uniform_int",
       "lower": 5,

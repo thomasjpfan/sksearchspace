@@ -1,5 +1,30 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_neighbors",
+      "type": "constant",
+      "value": 5
+    },
+    {
+      "name": "weights",
+      "type": "constant",
+      "value": "uniform"
+    },
+    {
+      "name": "metric",
+      "type": "constant",
+      "value": "nan_euclidean"
+    },
+    {
+      "name": "add_indicator",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

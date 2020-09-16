@@ -1,6 +1,16 @@
 {
   "hyperparameters": [
     {
+      "name": "n_features",
+      "type": "constant",
+      "value": 1048576
+    },
+    {
+      "name": "input_type",
+      "type": "constant",
+      "value": "dict"
+    },
+    {
       "name": "alternate_sign",
       "type": "categorical",
       "choices": [

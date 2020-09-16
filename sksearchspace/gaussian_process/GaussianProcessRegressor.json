@@ -1,5 +1,44 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "alpha",
+      "type": "constant",
+      "value": 1e-10
+    },
+    {
+      "name": "optimizer",
+      "type": "constant",
+      "value": "fmin_l_bfgs_b"
+    },
+    {
+      "name": "n_restarts_optimizer",
+      "type": "constant",
+      "value": 0
+    },
+    {
+      "name": "normalize_y",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "copy_X_train",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

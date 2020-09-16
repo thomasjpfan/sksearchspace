@@ -1,6 +1,39 @@
 {
   "hyperparameters": [
     {
+      "name": "fit_intercept",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "normalize",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.001
+    },
+    {
+      "name": "solver",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
       "name": "alpha",
       "type": "uniform_float",
       "log": true,

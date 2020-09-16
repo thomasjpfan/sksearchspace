@@ -1,6 +1,20 @@
 {
   "hyperparameters": [
     {
+      "name": "binarize",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "fit_prior",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
       "name": "alpha",
       "type": "uniform_float",
       "log": true,

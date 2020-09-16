@@ -1,5 +1,53 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "fit_intercept",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "normalize",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "precompute",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "n_nonzero_coefs",
+      "type": "constant",
+      "value": 500
+    },
+    {
+      "name": "eps",
+      "type": "constant",
+      "value": 2.220446049250313e-16
+    },
+    {
+      "name": "fit_path",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

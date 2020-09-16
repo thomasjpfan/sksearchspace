@@ -1,5 +1,55 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "n_clusters",
+      "type": "constant",
+      "value": 3
+    },
+    {
+      "name": "method",
+      "type": "constant",
+      "value": "bistochastic"
+    },
+    {
+      "name": "n_components",
+      "type": "constant",
+      "value": 6
+    },
+    {
+      "name": "n_best",
+      "type": "constant",
+      "value": 3
+    },
+    {
+      "name": "svd_method",
+      "type": "constant",
+      "value": "randomized"
+    },
+    {
+      "name": "mini_batch",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "init",
+      "type": "constant",
+      "value": "k-means++"
+    },
+    {
+      "name": "n_init",
+      "type": "constant",
+      "value": 10
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

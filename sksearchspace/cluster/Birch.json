@@ -1,6 +1,25 @@
 {
   "hyperparameters": [
     {
+      "name": "branching_factor",
+      "type": "constant",
+      "value": 50
+    },
+    {
+      "name": "n_clusters",
+      "type": "constant",
+      "value": 3
+    },
+    {
+      "name": "compute_labels",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
       "name": "threshold",
       "type": "uniform_float",
       "log": false,

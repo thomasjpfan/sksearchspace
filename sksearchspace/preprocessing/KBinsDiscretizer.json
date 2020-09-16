@@ -1,6 +1,16 @@
 {
   "hyperparameters": [
     {
+      "name": "n_bins",
+      "type": "constant",
+      "value": 5
+    },
+    {
+      "name": "encode",
+      "type": "constant",
+      "value": "onehot"
+    },
+    {
       "name": "strategy",
       "type": "categorical",
       "choices": [

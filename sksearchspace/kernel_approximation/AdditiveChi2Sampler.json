@@ -1,5 +1,11 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "sample_steps",
+      "type": "constant",
+      "value": 2
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

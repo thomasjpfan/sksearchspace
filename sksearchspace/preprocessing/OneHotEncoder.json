@@ -1,6 +1,20 @@
 {
   "hyperparameters": [
     {
+      "name": "categories",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "sparse",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
       "name": "handle_unknown",
       "type": "constant",
       "value": "ignore"

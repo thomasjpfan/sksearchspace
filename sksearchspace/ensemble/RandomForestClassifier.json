@@ -1,6 +1,59 @@
 {
   "hyperparameters": [
     {
+      "name": "n_estimators",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "min_samples_split",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "min_samples_leaf",
+      "type": "constant",
+      "value": 1
+    },
+    {
+      "name": "min_weight_fraction_leaf",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "min_impurity_decrease",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "bootstrap",
+      "type": "categorical",
+      "choices": [
+        true
+      ],
+      "default": true,
+      "probabilities": null
+    },
+    {
+      "name": "oob_score",
+      "type": "categorical",
+      "choices": [
+        false
+      ],
+      "default": false,
+      "probabilities": null
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
+      "name": "ccp_alpha",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
       "name": "criterion",
       "type": "categorical",
       "choices": [

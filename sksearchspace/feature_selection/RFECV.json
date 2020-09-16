@@ -1,5 +1,16 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "step",
+      "type": "constant",
+      "value": 1
+    },
+    {
+      "name": "min_features_to_select",
+      "type": "constant",
+      "value": 1
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

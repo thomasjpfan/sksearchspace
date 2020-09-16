@@ -1,5 +1,36 @@
 {
-  "hyperparameters": [],
+  "hyperparameters": [
+    {
+      "name": "mode",
+      "type": "constant",
+      "value": "distance"
+    },
+    {
+      "name": "n_neighbors",
+      "type": "constant",
+      "value": 5
+    },
+    {
+      "name": "algorithm",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "leaf_size",
+      "type": "constant",
+      "value": 30
+    },
+    {
+      "name": "metric",
+      "type": "constant",
+      "value": "minkowski"
+    },
+    {
+      "name": "p",
+      "type": "constant",
+      "value": 2
+    }
+  ],
   "conditions": [],
   "forbiddens": [],
   "python_module_version": "0.4.13",

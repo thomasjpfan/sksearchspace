@@ -1,6 +1,46 @@
 {
   "hyperparameters": [
     {
+      "name": "splitter",
+      "type": "constant",
+      "value": "random"
+    },
+    {
+      "name": "min_samples_split",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "min_samples_leaf",
+      "type": "constant",
+      "value": 1
+    },
+    {
+      "name": "min_weight_fraction_leaf",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "max_features",
+      "type": "constant",
+      "value": "auto"
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
+      "name": "min_impurity_decrease",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "ccp_alpha",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
       "name": "criterion",
       "type": "categorical",
       "choices": [

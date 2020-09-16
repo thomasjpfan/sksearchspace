@@ -1,6 +1,71 @@
 {
   "hyperparameters": [
     {
+      "name": "loss",
+      "type": "constant",
+      "value": "deviance"
+    },
+    {
+      "name": "n_estimators",
+      "type": "constant",
+      "value": 100
+    },
+    {
+      "name": "subsample",
+      "type": "constant",
+      "value": 1.0
+    },
+    {
+      "name": "criterion",
+      "type": "constant",
+      "value": "friedman_mse"
+    },
+    {
+      "name": "min_samples_split",
+      "type": "constant",
+      "value": 2
+    },
+    {
+      "name": "min_samples_leaf",
+      "type": "constant",
+      "value": 1
+    },
+    {
+      "name": "min_weight_fraction_leaf",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "max_depth",
+      "type": "constant",
+      "value": 3
+    },
+    {
+      "name": "min_impurity_decrease",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
+      "name": "random_state",
+      "type": "constant",
+      "value": 42
+    },
+    {
+      "name": "validation_fraction",
+      "type": "constant",
+      "value": 0.1
+    },
+    {
+      "name": "tol",
+      "type": "constant",
+      "value": 0.0001
+    },
+    {
+      "name": "ccp_alpha",
+      "type": "constant",
+      "value": 0.0
+    },
+    {
       "name": "learning_rate",
       "type": "uniform_float",
       "log": true,

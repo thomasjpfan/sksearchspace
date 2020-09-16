@@ -84,16 +84,25 @@ def test_for_sklearn_estimator(Estimator):
     X = _enforce_estimator_tags_x(X, estimator)
 
     iterations = 10
-    sample_parameters = estimator_space.sample()
+    sample_parameters_orig = estimator_space.sample()
 
-    # empty dictionary just iterate once
-    if not sample_parameters:
-        iterations = 1
+    estimator.set_params(**sample_parameters_orig)
+    # Does not fail
+    try:
+        estimator.fit(X, y)
+    except Exception as e:
+        raise AssertionError(
+            f"failed with parameters {sample_parameters_orig}") from e
 
     for _ in range(iterations):
         # make sure the sampled paramters is a subset of the estimator
         # parameters
         sample_parameters = estimator_space.sample()
+
+        # If the next sample is the sample then continue
+        if sample_parameters == sample_parameters_orig:
+            continue
+
         assert set(sample_parameters) <= est_parameters_set, \
                set(sample_parameters) - est_parameters_set
 
