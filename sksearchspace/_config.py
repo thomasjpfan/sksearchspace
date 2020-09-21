@@ -58,33 +58,37 @@ class SearchSpace:
         """Sample configuration."""
         sample = self.configuration.sample_configuration()
         sample = sample.get_dictionary()
-        if not self.parameter_conversion:
-            return sample
+        return self.normalize_config_space_dict(sample)
 
-        sample_keys = list(sample.keys())
+    def normalize_config_space_dict(self, config_dict):
+        if not self.parameter_conversion:
+            return config_dict
+
+        config_dict = config_dict.copy()
+        config_dict_keys = list(config_dict.keys())
         # there are parameters to convert
-        for param in sample_keys:
-            value = sample[param]
+        for param in config_dict_keys:
+            value = config_dict[param]
             conversion = self.parameter_conversion[param]
             if Conversion.NONE in conversion:
                 value = check_none(value)
             if Conversion.IMPORT in conversion:
                 value = check_import(value)
-            sample[param] = value
+            config_dict[param] = value
 
         keys_to_remove = []
-        for param in sample_keys:
-            value = sample[param]
+        for param in config_dict_keys:
+            value = config_dict[param]
             conversion = self.parameter_conversion[param]
             if Conversion.CHOICE in conversion:
-                choice = sample[param]
-                sample[param] = sample[choice]
+                choice = config_dict[param]
+                config_dict[param] = config_dict[choice]
                 keys_to_remove.append(choice)
 
         for keys in keys_to_remove:
-            del sample[keys]
+            del config_dict[keys]
 
-        return sample
+        return config_dict
 
     @classmethod
     def for_sklearn_estimator(cls, Estimator, seed=None):
