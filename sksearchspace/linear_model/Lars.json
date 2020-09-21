@@ -41,11 +41,6 @@
       ],
       "default": true,
       "probabilities": null
-    },
-    {
-      "name": "random_state",
-      "type": "constant",
-      "value": 42
     }
   ],
   "conditions": [],

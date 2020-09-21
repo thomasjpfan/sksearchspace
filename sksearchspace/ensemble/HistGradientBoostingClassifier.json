@@ -31,11 +31,6 @@
       "value": 255
     },
     {
-      "name": "early_stopping",
-      "type": "constant",
-      "value": "auto"
-    },
-    {
       "name": "scoring",
       "type": "constant",
       "value": "loss"

@@ -26,13 +26,11 @@ from sklearn.covariance import MinCovDet
 from sklearn.covariance import OAS
 from sklearn.covariance import ShrunkCovariance
 
-from sklearn.decomposition import DictionaryLearning
 from sklearn.decomposition import FactorAnalysis
 from sklearn.decomposition import FastICA
 from sklearn.decomposition import IncrementalPCA
 from sklearn.decomposition import KernelPCA
 from sklearn.decomposition import LatentDirichletAllocation
-from sklearn.decomposition import MiniBatchDictionaryLearning
 from sklearn.decomposition import MiniBatchSparsePCA
 from sklearn.decomposition import NMF
 from sklearn.decomposition import PCA
@@ -116,9 +114,6 @@ from sklearn.linear_model import BayesianRidge
 from sklearn.linear_model import HuberRegressor
 from sklearn.linear_model import RANSACRegressor
 from sklearn.linear_model import TheilSenRegressor
-from sklearn.linear_model import PoissonRegressor
-from sklearn.linear_model import TweedieRegressor
-from sklearn.linear_model import GammaRegressor
 from sklearn.linear_model import PassiveAggressiveRegressor
 
 from sklearn.kernel_approximation import AdditiveChi2Sampler
@@ -213,14 +208,11 @@ MODULE_TO_ESTIMATORS = {
         ShrunkCovariance,
     ],
     "decomposition": [
-        DictionaryLearning,
         FactorAnalysis,
         FastICA,
         IncrementalPCA,
         KernelPCA,
         LatentDirichletAllocation,
-        MiniBatchDictionaryLearning,
-        MiniBatchDictionaryLearning,
         MiniBatchSparsePCA,
         NMF,
         PCA,
@@ -297,9 +289,6 @@ MODULE_TO_ESTIMATORS = {
         HuberRegressor,
         RANSACRegressor,
         TheilSenRegressor,
-        PoissonRegressor,
-        TweedieRegressor,
-        GammaRegressor,
         PassiveAggressiveRegressor,
     ],
     "kernel_approximation": [

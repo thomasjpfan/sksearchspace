@@ -26,11 +26,6 @@
       "value": 255
     },
     {
-      "name": "early_stopping",
-      "type": "constant",
-      "value": "auto"
-    },
-    {
       "name": "scoring",
       "type": "constant",
       "value": "loss"
@@ -68,8 +63,7 @@
       "type": "categorical",
       "choices": [
         "least_squares",
-        "least_absolute_deviation",
-        "poisson"
+        "least_absolute_deviation"
       ],
       "default": "least_squares",
       "probabilities": null
