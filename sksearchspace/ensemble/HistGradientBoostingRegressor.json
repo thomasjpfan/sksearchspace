@@ -3,22 +3,31 @@
     {
       "name": "max_iter",
       "type": "constant",
-      "value": 100
+      "value": 512
     },
     {
       "name": "max_leaf_nodes",
-      "type": "constant",
-      "value": 31
+      "type": "uniform_int",
+      "log": true,
+      "lower": 3,
+      "upper": 2047,
+      "default": 31
     },
     {
       "name": "min_samples_leaf",
-      "type": "constant",
-      "value": 20
+      "type": "uniform_int",
+      "log": true,
+      "lower": 1,
+      "upper": 200,
+      "default": 20
     },
     {
       "name": "l2_regularization",
-      "type": "constant",
-      "value": 0.0
+      "type": "uniform_float",
+      "log": true,
+      "lower": 1e-10,
+      "upper": 1,
+      "default": 1e-10
     },
     {
       "name": "max_bins",
