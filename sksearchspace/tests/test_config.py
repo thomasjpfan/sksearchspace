@@ -13,15 +13,6 @@ def test_SearchSpace_raises_unrecognized():
         SearchSpace.for_sklearn_estimator(BadEstimator)
 
 
-def test_SearchSpace_raises_instances():
-    class BadEstimator:
-        pass
-
-    msg = "estimator must be a class and not an instance"
-    with pytest.raises(ValueError, match=msg):
-        SearchSpace.for_sklearn_estimator(BadEstimator())
-
-
 def test_check_none():
     assert check_none('None') is None
     assert check_none('cat') == 'cat'

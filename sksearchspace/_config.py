@@ -5,6 +5,8 @@ from enum import IntFlag
 from ._paths import ESTIMATOR_TO_PCS_PATH
 
 from ConfigSpace.read_and_write import json as configspace_json
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
 import json
 
 
@@ -92,8 +94,15 @@ class SearchSpace:
 
     @classmethod
     def for_sklearn_estimator(cls, Estimator, seed=None):
+        if isinstance(Estimator, Pipeline):
+            from .metaestimators import PipelineSearchSpace
+            return PipelineSearchSpace(Estimator, seed=seed)
+        elif isinstance(Estimator, ColumnTransformer):
+            from .metaestimators import ColumnTransformerSearchSpace
+            return ColumnTransformerSearchSpace(Estimator, seed=seed)
+
         if not inspect.isclass(Estimator):
-            raise ValueError("estimator must be a class and not an instance")
+            Estimator = type(Estimator)
         try:
             pcs_path = ESTIMATOR_TO_PCS_PATH[Estimator]
         except KeyError:

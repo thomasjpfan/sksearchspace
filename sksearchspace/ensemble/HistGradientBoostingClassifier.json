@@ -8,7 +8,7 @@
     {
       "name": "max_iter",
       "type": "constant",
-      "value": 100
+      "value": 512
     },
     {
       "name": "max_leaf_nodes",
