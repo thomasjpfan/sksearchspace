@@ -1,15 +1,11 @@
 {
   "hyperparameters": [
     {
-      "name": "strategy",
-      "type": "constant",
-      "value": "mean"
-    },
-    {
       "name": "add_indicator",
       "type": "categorical",
       "choices": [
-        false
+        false,
+        true
       ],
       "default": false,
       "probabilities": null

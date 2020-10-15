@@ -13,7 +13,9 @@ jobs:
       - name: Install package
         run: pip install -e .
       - name: Install test dependencies
-        run: pip install -r requirements-dev.txt
+        run: |
+          pip install -r requirements-dev.txt
+          pip install --pre --extra-index https://pypi.anaconda.org/scipy-wheels-nightly/simple scikit-learn
       - name: Lint
         run: flake8 .
       - name: Run tests
