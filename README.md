@@ -13,13 +13,6 @@ successive halving to train a model:
 
 ```py
 from sksearchspace import AutoHalvingRandomSearchCV
-from sklearn.datasets import fetch_openml
-from sklearn.model_selection import train_test_split
-
-num_prep = Pipeline([
-    ('impute', SimpleImputer()),
-    ('scaler', StandardScaler())
-])
 
 cat_prep = Pipeline([
     ('impute', SimpleImputer(strategy='constant', fill_value='sk_missing')),
@@ -27,7 +20,7 @@ cat_prep = Pipeline([
 ])
 
 ct = ColumnTransformer([
-    ('num', num_prep, make_column_selector(dtype_include=['number'])),
+    ('num', 'passthrough', make_column_selector(dtype_include=['number'])),
     ('cat', cat_prep, make_column_selector(dtype_include=['object', 'category']))
 ])
 pipe = Pipeline(
@@ -37,6 +30,7 @@ pipe = Pipeline(
 
 X, y = fetch_openml("titanic", version=1, as_frame=True, return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y)
+
 auto_halving = AutoHalvingRandomSearchCV(pipe, verbose=1, scoring='f1_macro')
 auto_halving.fit(X_train, y_train)
 ```
