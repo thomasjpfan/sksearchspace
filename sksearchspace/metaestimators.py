@@ -1,3 +1,4 @@
+from contextlib import suppress
 from sklearn.base import BaseEstimator
 from ._config import SearchSpace
 
@@ -20,7 +21,9 @@ class ColumnTransformerSearchSpace(_MetaSearchSpace):
         for name, est, _ in column_transformer.transformers:
             if not isinstance(est, BaseEstimator):
                 continue
-            self.search_spaces[name] = SearchSpace.for_sklearn_estimator(est)
+
+            with suppress(ValueError):
+                self.search_spaces[name] = SearchSpace.for_sklearn_estimator(est)
 
 
 class PipelineSearchSpace(_MetaSearchSpace):
@@ -29,4 +32,5 @@ class PipelineSearchSpace(_MetaSearchSpace):
         for name, est in pipeline.steps:
             if not isinstance(est, BaseEstimator):
                 continue
-            self.search_spaces[name] = SearchSpace.for_sklearn_estimator(est)
+            with suppress(ValueError):
+                self.search_spaces[name] = SearchSpace.for_sklearn_estimator(est)
