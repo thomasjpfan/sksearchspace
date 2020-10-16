@@ -9,7 +9,9 @@ Scikit-learn Search Space Configurations with curated search spaces for [scikit-
 ### Auto Halving Search
 
 `AutoHalvingRandomSearchCV` automatically generates search spaces and uses
-successive halving to train a model:
+successive halving to train a model. This is based on
+[HalvingRandomSearchCV](https://scikit-learn.org/dev/modules/generated/sklearn.model_selection.HalvingRandomSearchCV.html#sklearn.model_selection.HalvingRandomSearchCV) which is going to
+be released in sklearn 0.24.
 
 ```py
 from sksearchspace import AutoHalvingRandomSearchCV
