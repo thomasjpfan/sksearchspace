@@ -4,7 +4,6 @@
       "name": "add_indicator",
       "type": "categorical",
       "choices": [
-        false,
         true
       ],
       "default": false,
