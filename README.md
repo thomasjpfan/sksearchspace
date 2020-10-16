@@ -31,8 +31,12 @@ pipe = Pipeline(
 X, y = fetch_openml("titanic", version=1, as_frame=True, return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 
+# Runs Halving Random Search
 auto_halving = AutoHalvingRandomSearchCV(pipe, verbose=1, scoring='f1_macro')
 auto_halving.fit(X_train, y_train)
+
+auto_halving.score(X_train, y_train)
+# 0.977
 ```
 
 ### SearchSpace
