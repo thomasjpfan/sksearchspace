@@ -6,7 +6,7 @@
       "choices": [
         true
       ],
-      "default": false,
+      "default": true,
       "probabilities": null
     }
   ],
