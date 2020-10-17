@@ -23,7 +23,8 @@ class ColumnTransformerSearchSpace(_MetaSearchSpace):
                 continue
 
             with suppress(ValueError):
-                self.search_spaces[name] = SearchSpace.for_sklearn_estimator(est)
+                self.search_spaces[name] = \
+                    SearchSpace.for_sklearn_estimator(est)
 
 
 class PipelineSearchSpace(_MetaSearchSpace):
@@ -33,4 +34,5 @@ class PipelineSearchSpace(_MetaSearchSpace):
             if not isinstance(est, BaseEstimator):
                 continue
             with suppress(ValueError):
-                self.search_spaces[name] = SearchSpace.for_sklearn_estimator(est)
+                self.search_spaces[name] = \
+                    SearchSpace.for_sklearn_estimator(est)
